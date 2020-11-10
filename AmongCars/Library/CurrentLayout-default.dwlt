@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 66
+  controlID: 62
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 144
+  controlID: 63
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 145
+  controlID: 64
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -409,14 +409,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\pardi\OneDrive\Escritorio\RAA\AmongCars
+  m_LastProjectPath: D:\AmongCars\AmongCars
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 143a0000
-    m_LastClickedID: 14868
-    m_ExpandedIDs: 000000001a3a00001c3a0000203a0000243a0000263a00002e3a0000303a0000323a0000343a0000363a0000383a00003a3a00008c4200008e42000000ca9a3b
+    m_SelectedIDs: 00360000
+    m_LastClickedID: 13824
+    m_ExpandedIDs: 00000000d2350000d4350000d6350000d8350000da350000dc350000de350000e0350000e2350000e4350000e6350000e8350000ea350000ec35000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -444,7 +444,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000143a0000163a0000183a00001a3a00001c3a00001e3a0000203a0000223a0000243a0000263a0000283a00002a3a00002c3a00002e3a0000303a0000323a0000343a0000363a0000383a00003a3a0000
+    m_ExpandedIDs: 00000000d2350000d4350000d6350000d8350000da350000dc350000de350000e0350000e2350000e4350000e6350000e8350000ea350000ec350000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -567,9 +567,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 42360000
-      m_LastClickedID: 13890
-      m_ExpandedIDs: 4cfbffff12360000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 4cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -629,9 +629,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 49.60377, y: 22.257828, z: 59.060352}
+    m_Target: {x: 66.171295, y: 4.09118, z: 68.153305}
     speed: 2
-    m_Value: {x: 49.60377, y: 22.257828, z: 59.060352}
+    m_Value: {x: 66.171295, y: 4.09118, z: 68.153305}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 2
@@ -677,17 +677,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    m_Target: {x: 0.30089435, y: 0.12540743, z: -0.03995185, w: 0.94453955}
     speed: 2
-    m_Value: {x: 0.70710677, y: 0, z: 0, w: 0.7071068}
+    m_Value: {x: 0.30083176, y: 0.12682311, z: -0.040402833, w: 0.94434303}
   m_Size:
     m_Target: 26.984516
     speed: 2
-    m_Value: 28.256039
+    m_Value: 26.984516
   m_Ortho:
-    m_Target: 1
+    m_Target: 0
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5
