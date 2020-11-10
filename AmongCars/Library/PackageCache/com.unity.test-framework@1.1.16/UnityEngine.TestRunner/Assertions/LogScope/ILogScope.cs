@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:85be75e36196bad2a2ad795c2bb8882c6f4d92bfd6009fe97c753d71f463e0a0
-size 759
+using System;
+using System.Collections.Generic;
+
+namespace UnityEngine.TestTools.Logging
+{
+    internal interface ILogScope : IDisposable
+    {
+        Queue<LogMatch> ExpectedLogs { get; set; }
+        List<LogEvent> AllLogs { get; }
+        List<LogEvent> FailingLogs { get; }
+        bool IgnoreFailingMessages { get; set; }
+        bool IsNUnitException { get; }
+        bool IsNUnitSuccessException { get; }
+        bool IsNUnitInconclusiveException { get; }
+        bool IsNUnitIgnoreException { get; }
+        string NUnitExceptionMessage { get; }
+        void AddLog(string message, string stacktrace, LogType type);
+        bool AnyFailingLogs();
+        void ProcessExpectedLogs();
+        void NoUnexpectedReceived();
+    }
+}

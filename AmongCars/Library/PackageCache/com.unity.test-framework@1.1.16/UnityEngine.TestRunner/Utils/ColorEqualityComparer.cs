@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e6191d5b1241eee06524d387582f04a920fcb361e3201ad72b1bac9a7b51f96c
-size 1186
+using System.Collections.Generic;
+
+namespace UnityEngine.TestTools.Utils
+{
+    public class ColorEqualityComparer : IEqualityComparer<Color>
+    {
+        private const float k_DefaultError = 0.01f;
+        private readonly float AllowedError;
+
+
+        private static readonly ColorEqualityComparer m_Instance = new ColorEqualityComparer();
+        public static ColorEqualityComparer Instance { get { return m_Instance; } }
+
+        private ColorEqualityComparer() : this(k_DefaultError)
+        {
+        }
+
+        public ColorEqualityComparer(float error)
+        {
+            this.AllowedError = error;
+        }
+
+        public bool Equals(Color expected, Color actual)
+        {
+            return Utils.AreFloatsEqualAbsoluteError(expected.r, actual.r, AllowedError) &&
+                Utils.AreFloatsEqualAbsoluteError(expected.g, actual.g, AllowedError) &&
+                Utils.AreFloatsEqualAbsoluteError(expected.b, actual.b, AllowedError) &&
+                Utils.AreFloatsEqualAbsoluteError(expected.a, actual.a, AllowedError);
+        }
+
+        public int GetHashCode(Color color)
+        {
+            return 0;
+        }
+    }
+}

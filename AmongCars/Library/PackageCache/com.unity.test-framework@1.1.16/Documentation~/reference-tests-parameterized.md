@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ee4599a09ce48b4b00a7185eaa15c796d75ffea2828427e899b9f26eeeebf0bf
-size 631
+# Parameterized tests
+
+For data-driven testing, you may want to have your tests parameterized. You may use both the [NUnit](http://www.nunit.org/) attributes [TestCase](https://github.com/nunit/docs/wiki/TestCase-Attribute) and [ValueSource](https://github.com/nunit/docs/wiki/ValueSource-Attribute) with a unit test. 
+
+> **Note**: With `UnityTest` it is recommended to use `ValueSource` since `TestCase` is not supported.  
+
+## Example
+
+```c#
+static int[] values = new int[] { 1, 5, 6 };
+
+[UnityTest]
+public IEnumerator MyTestWithMultipleValues([ValueSource("values")] int value)
+{
+    yield return null;
+}
+```
+

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f0be362af99328b07287d38784d68577acef5d9eeb0d97e4d816d8fc5fc5a42a
-size 409
+using System;
+using System.Collections;
+
+namespace UnityEditor.TestTools.TestRunner.TestRun.Tasks
+{
+    internal class SaveUndoIndexTask : TestTaskBase
+    {
+        internal Func<int> GetUndoGroup = Undo.GetCurrentGroup;
+        public override IEnumerator Execute(TestJobData testJobData)
+        {
+            testJobData.undoGroup = GetUndoGroup();
+            yield break;
+        }
+    }
+}

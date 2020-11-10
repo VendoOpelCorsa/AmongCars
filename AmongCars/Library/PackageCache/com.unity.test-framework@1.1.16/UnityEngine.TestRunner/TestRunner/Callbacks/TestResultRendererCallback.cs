@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:78dbd3cca9bc0e304f67ee22691163bae703b74e8a3ad5cdbb88682da8fa0dd3
-size 922
+using NUnit.Framework.Interfaces;
+
+namespace UnityEngine.TestTools.TestRunner.Callbacks
+{
+    internal class TestResultRendererCallback : MonoBehaviour, ITestRunnerListener
+    {
+        private TestResultRenderer m_ResultRenderer;
+        public void RunStarted(ITest testsToRun)
+        {
+        }
+
+        public void RunFinished(ITestResult testResults)
+        {
+            if (Camera.main == null)
+            {
+                gameObject.AddComponent<Camera>();
+            }
+            m_ResultRenderer = new TestResultRenderer(testResults);
+            m_ResultRenderer.ShowResults();
+        }
+
+        public void OnGUI()
+        {
+            if (m_ResultRenderer != null)
+                m_ResultRenderer.Draw();
+        }
+
+        public void TestStarted(ITest test)
+        {
+        }
+
+        public void TestFinished(ITestResult result)
+        {
+        }
+    }
+}

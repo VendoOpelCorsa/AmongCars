@@ -1,3 +1,49 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:680b651cf2e16a2a1c700c32b6a3558f69e3a9f46352ca4ba97aee35af640e35
-size 1827
+using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
+using NUnit.Framework.Internal;
+using NUnit.Framework.Internal.Commands;
+using UnityEngine.TestRunner.NUnitExtensions.Runner;
+
+namespace UnityEngine.TestTools
+{
+    internal class OuterUnityTestActionCommand : BeforeAfterTestCommandBase<IOuterUnityTestAction>
+    {
+        public OuterUnityTestActionCommand(TestCommand innerCommand)
+            : base(innerCommand, "BeforeTest", "AfterTest")
+        {
+            if (Test.TypeInfo.Type != null)
+            {
+                BeforeActions = GetUnityTestActionsFromMethod(Test.Method.MethodInfo);
+                AfterActions = BeforeActions;
+            }
+        }
+
+        private static IOuterUnityTestAction[] GetUnityTestActionsFromMethod(MethodInfo method)
+        {
+            var attributes = method.GetCustomAttributes(false);
+            List<IOuterUnityTestAction> actions = new List<IOuterUnityTestAction>();
+            foreach (var attribute in attributes)
+            {
+                if (attribute is IOuterUnityTestAction)
+                    actions.Add(attribute as IOuterUnityTestAction);
+            }
+            return actions.ToArray();
+        }
+
+        protected override IEnumerator InvokeBefore(IOuterUnityTestAction action, Test test, UnityTestExecutionContext context)
+        {
+            return action.BeforeTest(test);
+        }
+
+        protected override IEnumerator InvokeAfter(IOuterUnityTestAction action, Test test, UnityTestExecutionContext context)
+        {
+            return action.AfterTest(test);
+        }
+
+        protected override BeforeAfterTestCommandState GetState(UnityTestExecutionContext context)
+        {
+            return context.OuterUnityTestActionState;
+        }
+    }
+}

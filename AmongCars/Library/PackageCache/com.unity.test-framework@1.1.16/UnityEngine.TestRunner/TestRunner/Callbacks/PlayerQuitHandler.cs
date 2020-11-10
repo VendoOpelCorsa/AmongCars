@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b268ec470503d387fdd1322f7a1d7c363445f243457e1c0236b9a1f7724b4139
-size 1258
+﻿using NUnit.Framework.Interfaces;
+using UnityEngine.Networking.PlayerConnection;
+using UnityEngine.TestRunner.TestLaunchers;
+
+namespace UnityEngine.TestTools.TestRunner.Callbacks
+{
+    internal class PlayerQuitHandler : MonoBehaviour, ITestRunnerListener
+    {
+        public void Start()
+        {
+            PlayerConnection.instance.Register(PlayerConnectionMessageIds.quitPlayerMessageId, ProcessPlayerQuiteMessage);
+        }
+
+        private void ProcessPlayerQuiteMessage(MessageEventArgs arg0)
+        {
+            //Some platforms don't quit, so we need to disconnect to make sure they will not connect to another editor instance automatically.
+            PlayerConnection.instance.DisconnectAll();
+
+            //XBOX has an error when quitting
+            if (Application.platform == RuntimePlatform.XboxOne)
+            {
+                return;
+            }
+            Application.Quit();
+        }
+
+        public void RunStarted(ITest testsToRun)
+        {
+        }
+
+        public void RunFinished(ITestResult testResults)
+        {
+        }
+
+        public void TestStarted(ITest test)
+        {
+        }
+
+        public void TestFinished(ITestResult result)
+        {
+        }
+    }
+}

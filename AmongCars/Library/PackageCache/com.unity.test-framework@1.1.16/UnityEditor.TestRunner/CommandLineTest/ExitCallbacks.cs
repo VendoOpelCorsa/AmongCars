@@ -1,3 +1,53 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fdef0987f3710fe5f54eeaf18d646c03de6de3e6f96255de490d5ed61cd19e75
-size 1479
+using System;
+using UnityEditor.TestTools.TestRunner.Api;
+using UnityEngine;
+
+namespace UnityEditor.TestTools.TestRunner.CommandLineTest
+{
+    [Serializable]
+    internal class ExitCallbacks : ScriptableObject, IErrorCallbacks
+    {
+        private bool m_AnyTestsExecuted;
+        private bool m_RunFailed;
+        internal static bool preventExit;
+
+        public void RunFinished(ITestResultAdaptor testResults)
+        {
+            if (preventExit)
+            {
+                return;
+            }
+
+            if (!m_AnyTestsExecuted)
+            {
+                Debug.LogFormat(LogType.Warning, LogOption.NoStacktrace, null, "No tests were executed");
+            }
+            EditorApplication.Exit(m_RunFailed ? (int)Executer.ReturnCodes.Failed : (int)Executer.ReturnCodes.Ok);
+        }
+
+        public void TestStarted(ITestAdaptor test)
+        {
+            if (!test.IsSuite)
+            {
+                m_AnyTestsExecuted = true;
+            }
+        }
+
+        public void TestFinished(ITestResultAdaptor result)
+        {
+            if (!result.Test.IsSuite && (result.TestStatus == TestStatus.Failed))
+            {
+                m_RunFailed = true;
+            }
+        }
+
+        public void RunStarted(ITestAdaptor testsToRun)
+        {
+        }
+
+        public void OnError(string message)
+        {
+            EditorApplication.Exit((int)Executer.ReturnCodes.RunError);
+        }
+    }
+}

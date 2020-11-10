@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2c3b596957a01f45026777256a7d4b55ba1ad4a1d8b7d7079627e213996427c1
-size 229
+This is a custom nUnit build meant to be used by Unity editor and players. It shoul not be included or referenced from anywhere (unless you know what you're doing)
+
+Build from this repo
+https://github.com/Unity-Technologies/nunit

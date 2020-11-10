@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ce51cc36e7c296bdc448ac16396b70f4598015f7416f58bd918701145a404aee
-size 734
+using System;
+using UnityEngine;
+
+namespace UnityEditor.TestTools.TestRunner
+{
+    internal class EditModeLauncherContextSettings : IDisposable
+    {
+        private bool m_RunInBackground;
+
+        public EditModeLauncherContextSettings()
+        {
+            SetupProjectParameters();
+        }
+
+        public void Dispose()
+        {
+            CleanupProjectParameters();
+        }
+
+        private void SetupProjectParameters()
+        {
+            m_RunInBackground = Application.runInBackground;
+            Application.runInBackground = true;
+        }
+
+        private void CleanupProjectParameters()
+        {
+            Application.runInBackground = m_RunInBackground;
+        }
+    }
+}

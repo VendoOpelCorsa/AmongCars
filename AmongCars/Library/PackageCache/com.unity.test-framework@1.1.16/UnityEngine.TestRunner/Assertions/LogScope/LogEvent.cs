@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8935a168c4379891f76e0e4ab0cce2dd1d4eb06944bc7a9a782c68abc1b78cd8
-size 413
+namespace UnityEngine.TestTools.Logging
+{
+    internal class LogEvent
+    {
+        public string Message { get; set; }
+
+        public string StackTrace { get; set; }
+
+        public LogType LogType { get; set; }
+
+        public bool IsHandled { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("[{0}] {1}", LogType, Message);
+        }
+    }
+}

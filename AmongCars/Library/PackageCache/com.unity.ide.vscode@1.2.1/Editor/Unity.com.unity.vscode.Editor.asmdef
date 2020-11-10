@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:213caaf5c9ee720c0ca664fdcf8cda55b94cf1941fe5b03d03947ffa96a36379
-size 173
+{
+    "name": "Unity.VSCode.Editor",
+    "references": [],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b80ddfbfaa6d1ecfc44ec0e1f8f419759e9806ea001f768bd68879d6cdacfa04
-size 852
+using System.Collections;
+using UnityEngine;
+using UnityEngine.TestTools;
+
+namespace UnityEditor.TestTools.TestRunner.TestRun.Tasks
+{
+    internal class LegacyEditModeRunTask : TestTaskBase
+    {
+        public LegacyEditModeRunTask() : base(true)
+        {
+            
+        }
+        
+        public override IEnumerator Execute(TestJobData testJobData)
+        {
+            var testLauncher = new EditModeLauncher(testJobData.executionSettings.filters, TestPlatform.EditMode, testJobData.executionSettings.runSynchronously);
+            testJobData.editModeRunner = testLauncher.m_EditModeRunner;
+            testLauncher.Run();
+            
+            while (testJobData.editModeRunner != null && !testJobData.editModeRunner.RunFinished)
+            {
+                yield return null;
+            }
+        }
+    }
+}

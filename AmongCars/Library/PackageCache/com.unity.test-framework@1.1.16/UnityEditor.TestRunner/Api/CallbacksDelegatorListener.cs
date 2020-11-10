@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3c7f97d54b32fe49a1cae0284c8dd01ee39404d91dc78410e02f1cbea3102667
-size 882
+using UnityEngine;
+using UnityEngine.TestTools.TestRunner;
+
+namespace UnityEditor.TestTools.TestRunner.Api
+{
+    internal class CallbacksDelegatorListener : ScriptableObject, ITestRunnerListener
+    {
+        public void RunStarted(NUnit.Framework.Interfaces.ITest testsToRun)
+        {
+            CallbacksDelegator.instance.RunStarted(testsToRun);
+        }
+
+        public void RunFinished(NUnit.Framework.Interfaces.ITestResult testResults)
+        {
+            CallbacksDelegator.instance.RunFinished(testResults);
+        }
+
+        public void TestStarted(NUnit.Framework.Interfaces.ITest test)
+        {
+            CallbacksDelegator.instance.TestStarted(test);
+        }
+
+        public void TestFinished(NUnit.Framework.Interfaces.ITestResult result)
+        {
+            CallbacksDelegator.instance.TestFinished(result);
+        }
+    }
+}

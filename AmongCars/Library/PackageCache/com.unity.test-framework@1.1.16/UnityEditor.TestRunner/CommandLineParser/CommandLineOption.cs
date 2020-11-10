@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3d6242d986b07997ee4f469c132be1edab31668832d44a4aab0646ac5f540280
-size 1159
+using System;
+using System.Linq;
+
+namespace UnityEditor.TestRunner.CommandLineParser
+{
+    internal class CommandLineOption : ICommandLineOption
+    {
+        Action<string> m_ArgAction;
+
+        public CommandLineOption(string argName, Action action)
+        {
+            ArgName = argName;
+            m_ArgAction = s => action();
+        }
+
+        public CommandLineOption(string argName, Action<string> action)
+        {
+            ArgName = argName;
+            m_ArgAction = action;
+        }
+
+        public CommandLineOption(string argName, Action<string[]> action)
+        {
+            ArgName = argName;
+            m_ArgAction = s => action(SplitStringToArray(s));
+        }
+
+        public string ArgName { get; private set; }
+
+        public void ApplyValue(string value)
+        {
+            m_ArgAction(value);
+        }
+
+        static string[] SplitStringToArray(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return null;
+            }
+
+            return value.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+        }
+    }
+}

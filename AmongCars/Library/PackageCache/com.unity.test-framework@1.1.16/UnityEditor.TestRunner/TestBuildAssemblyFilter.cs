@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:451e276d492bdb5532b845d49309aa625b1b8b6f508b8041bcc9b71b0d3dd296
-size 888
+using System.Linq;
+using UnityEditor.Build;
+
+namespace UnityEditor.TestRunner
+{
+    // This class is invoked from native, during build
+    internal class TestBuildAssemblyFilter : IFilterBuildAssemblies
+    {
+        private const string nunitAssemblyName = "nunit.framework";
+        private const string unityTestRunnerAssemblyName = "UnityEngine.TestRunner";
+
+        public int callbackOrder { get; }
+        public string[] OnFilterAssemblies(BuildOptions buildOptions, string[] assemblies)
+        {
+            if ((buildOptions & BuildOptions.IncludeTestAssemblies) == BuildOptions.IncludeTestAssemblies || PlayerSettings.playModeTestRunnerEnabled)
+            {
+                return assemblies;
+            }
+            return assemblies.Where(x => !x.Contains(nunitAssemblyName) && !x.Contains(unityTestRunnerAssemblyName)).ToArray();
+        }
+    }
+}

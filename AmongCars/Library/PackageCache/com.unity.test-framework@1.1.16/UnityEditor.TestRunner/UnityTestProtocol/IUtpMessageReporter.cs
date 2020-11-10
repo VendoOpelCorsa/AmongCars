@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:99ab5065c8aa78091594ae5db2e1127c3a622e664377f398b2b3d73ccc4ce91b
-size 530
+using System.Collections.Generic;
+using UnityEditor.Compilation;
+using UnityEditor.TestTools.TestRunner.Api;
+
+namespace UnityEditor.TestTools.TestRunner.UnityTestProtocol
+{
+    internal interface IUtpMessageReporter
+    {
+        void ReportAssemblyCompilationErrors(string assembly, IEnumerable<CompilerMessage> errorCompilerMessages);
+        void ReportTestFinished(ITestResultAdaptor result);
+        void ReportTestRunStarted(ITestAdaptor testsToRun);
+        void ReportTestStarted(ITestAdaptor test);
+    }
+}

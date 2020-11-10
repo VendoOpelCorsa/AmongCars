@@ -1,3 +1,96 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:259ddf96b8e39c63f0f01ad43e0f190d562ee9728cd812fc31d313cbc1677338
-size 3177
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using NUnit.Framework.Internal;
+using NUnit.Framework.Internal.Commands;
+using NUnit.Framework.Internal.Execution;
+using UnityEngine.TestRunner.NUnitExtensions.Runner;
+using UnityEngine.TestTools.TestRunner;
+
+namespace UnityEngine.TestTools
+{
+    internal class EnumerableTestMethodCommand : TestCommand, IEnumerableTestMethodCommand
+    {
+        private readonly TestMethod testMethod;
+
+        public EnumerableTestMethodCommand(TestMethod testMethod)
+            : base(testMethod)
+        {
+            this.testMethod = testMethod;
+        }
+
+        public IEnumerable ExecuteEnumerable(ITestExecutionContext context)
+        {
+            yield return null;
+
+            IEnumerator currentExecutingTestEnumerator;
+            try
+            {
+                currentExecutingTestEnumerator = new TestEnumeratorWrapper(testMethod).GetEnumerator(context);
+            }
+            catch (Exception ex)
+            {
+                context.CurrentResult.RecordException(ex);
+                yield break;
+            }
+            
+            if (currentExecutingTestEnumerator != null)
+            {
+                var testEnumeraterYieldInstruction = new TestEnumerator(context, currentExecutingTestEnumerator);
+
+                yield return testEnumeraterYieldInstruction;
+
+                var enumerator = testEnumeraterYieldInstruction.Execute();
+
+                var executingEnumerator = ExecuteEnumerableAndRecordExceptions(enumerator, context);
+                while (executingEnumerator.MoveNext())
+                {
+                    yield return executingEnumerator.Current;
+                }
+            }
+            else
+            {
+                if (context.CurrentResult.ResultState != ResultState.Ignored)
+                {
+                    context.CurrentResult.SetResult(ResultState.Success);
+                }
+            }
+        }
+
+        private static IEnumerator ExecuteEnumerableAndRecordExceptions(IEnumerator enumerator, ITestExecutionContext context)
+        {
+            while (true)
+            {
+                try
+                {
+                    if (!enumerator.MoveNext())
+                    {
+                        break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    context.CurrentResult.RecordException(ex);
+                    break;
+                }
+
+                if (enumerator.Current is IEnumerator)
+                {
+                    var current = (IEnumerator)enumerator.Current;
+                    yield return ExecuteEnumerableAndRecordExceptions(current, context);
+                }
+                else
+                {
+                    yield return enumerator.Current;
+                }
+            }
+        }
+
+        public override TestResult Execute(ITestExecutionContext context)
+        {
+            throw new NotImplementedException("Use ExecuteEnumerable");
+        }
+    }
+}

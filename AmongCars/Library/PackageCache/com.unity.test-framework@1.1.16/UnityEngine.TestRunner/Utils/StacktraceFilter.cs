@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a6069c911d13465fa7559b9ad68e97e00bffdfb3bdf5d3f7eaf1bba21f720458
-size 1420
+using System.Linq;
+using System.Text;
+
+namespace UnityEngine.TestTools.Utils
+{
+    internal static class StackTraceFilter
+    {
+        private static readonly string[] s_FilteredLogMessages =
+        {
+            @"UnityEngine.DebugLogHandler:Internal_Log",
+            @"UnityEngine.DebugLogHandler:Log",
+            @"UnityEngine.Logger:Log",
+            @"UnityEngine.Debug"
+        };
+
+        private static readonly string[] s_LastMessages =
+        {
+            @"System.Reflection.MonoMethod:InternalInvoke(Object, Object[], Exception&)",
+            @"UnityEditor.TestTools.TestRunner.EditModeRunner:InvokeDelegator"
+        };
+
+        public static string Filter(string inputStackTrace)
+        {
+            int idx;
+            foreach (var lastMessage in s_LastMessages)
+            {
+                idx = inputStackTrace.IndexOf(lastMessage);
+                if (idx != -1)
+                    inputStackTrace = inputStackTrace.Substring(0, idx);
+            }
+
+            var inputStackTraceLines = inputStackTrace.Split('\n');
+            var result = new StringBuilder();
+            foreach (var line in inputStackTraceLines)
+            {
+                if (s_FilteredLogMessages.Any(s => line.StartsWith(s)))
+                    continue;
+                result.AppendLine(line);
+            }
+            return result.ToString();
+        }
+    }
+}

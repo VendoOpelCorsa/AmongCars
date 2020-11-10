@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:93f849a1ee7a26a91e2ce61ef206ba2aa0d595d0537ad0a479e741829c239318
-size 978
+using System.Collections.Generic;
+using NUnit.Framework.Interfaces;
+
+namespace UnityEditor.TestTools.TestRunner.Api
+{
+    public interface ITestAdaptor
+    {
+        string Id { get; }
+        string Name { get; }
+        string FullName { get; }
+        int TestCaseCount { get; }
+        bool HasChildren { get; }
+        bool IsSuite { get; }
+        IEnumerable<ITestAdaptor> Children { get; }
+        ITestAdaptor Parent { get; }
+        int TestCaseTimeout { get; }
+        ITypeInfo TypeInfo { get; }
+        IMethodInfo Method { get; }
+        string[] Categories { get; }
+        bool IsTestAssembly { get; }
+        RunState RunState { get; }
+        string Description { get; }
+        string SkipReason { get; }
+        string ParentId { get; }
+        string ParentFullName { get; }
+        string UniqueName { get; }
+        string ParentUniqueName { get; }
+        int ChildIndex { get; }
+        TestMode TestMode { get; }
+    }
+}

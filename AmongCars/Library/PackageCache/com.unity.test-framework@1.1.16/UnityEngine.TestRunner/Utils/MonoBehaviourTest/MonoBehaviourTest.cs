@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7135e59afcf172f14580b02b2ab1f593578cb4324bda56944407257b88a1e87d
-size 729
+namespace UnityEngine.TestTools
+{
+    public class MonoBehaviourTest<T> : CustomYieldInstruction where T : MonoBehaviour, IMonoBehaviourTest
+    {
+        public T component { get; }
+        public GameObject gameObject { get { return component.gameObject; } }
+
+        public MonoBehaviourTest(bool dontDestroyOnLoad = true)
+        {
+            var go = new GameObject("MonoBehaviourTest: " + typeof(T).FullName);
+            component = go.AddComponent<T>();
+            if (dontDestroyOnLoad)
+            {
+                Object.DontDestroyOnLoad(go);
+            }
+        }
+
+        public override bool keepWaiting
+        {
+            get { return !component.IsTestFinished; }
+        }
+    }
+}

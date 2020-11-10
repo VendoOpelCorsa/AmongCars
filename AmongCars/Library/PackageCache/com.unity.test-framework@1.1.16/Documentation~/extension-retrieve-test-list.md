@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b3ae8d9be6b11a4f25c79cf376d4d1dbef19e8b5184650e204b844b435c94989
-size 734
+# How to retrieve the list of tests
+It is possible to use the [TestRunnerApi](./reference-test-runner-api.md) to retrieve the test tree for a given test mode (**Edit Mode** or **Play Mode**). You can retrieve the test tree by invoking `RetrieveTestList` with the desired `TestMode` and a callback action, with an [ITestAdaptor](./reference-itest-adaptor.md) representing the test tree.
+
+## Example
+The following example retrieves the test tree for Edit Mode tests and prints the number of total test cases:
+``` C#
+var api = ScriptableObject.CreateInstance<TestRunnerApi>();
+api.RetrieveTestList(TestMode.EditMode, (testRoot) =>
+{
+    Debug.Log(string.Format("Tree contains {0} tests.", testRoot.TestCaseCount));
+});
+```
+

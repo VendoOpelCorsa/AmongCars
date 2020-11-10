@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:340fbaf6e3ae487bd7cc3c2823197a15b1b0441414cafa9593ced7fdb6d38fbb
-size 831
+using System;
+using System.Collections;
+using UnityEditor;
+
+namespace UnityEngine.TestTools
+{
+    public class ExitPlayMode : IEditModeTestYieldInstruction
+    {
+        public bool ExpectDomainReload { get; }
+        public bool ExpectedPlaymodeState { get; private set; }
+
+        public ExitPlayMode()
+        {
+            ExpectDomainReload = false;
+            ExpectedPlaymodeState = false;
+        }
+
+        public IEnumerator Perform()
+        {
+            if (!EditorApplication.isPlayingOrWillChangePlaymode)
+            {
+                throw new Exception("Editor is already in EditMode");
+            }
+
+            EditorApplication.isPlaying = false;
+            while (EditorApplication.isPlaying)
+            {
+                yield return null;
+            }
+        }
+    }
+}

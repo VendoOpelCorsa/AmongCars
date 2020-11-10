@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:87d20a9a6427de8b69ece33781c06780a3cc4cec891a2021ff662a6106b7f397
-size 784
+using System.Collections;
+using System.Linq;
+using UnityEngine.TestTools.TestRunner;
+
+namespace UnityEditor.TestTools.TestRunner.TestRun.Tasks
+{
+    internal class LegacyPlayerRunTask : TestTaskBase
+    {
+        public override IEnumerator Execute(TestJobData testJobData)
+        {
+            var executionSettings = testJobData.executionSettings;
+            var settings = PlaymodeTestsControllerSettings.CreateRunnerSettings(executionSettings.filters.Select(filter => filter.ToTestRunnerFilter()).ToArray());
+            var launcher = new PlayerLauncher(settings, executionSettings.targetPlatform, executionSettings.overloadTestRunSettings, executionSettings.playerHeartbeatTimeout);
+            launcher.Run();
+            yield return null;
+        }
+    }
+}

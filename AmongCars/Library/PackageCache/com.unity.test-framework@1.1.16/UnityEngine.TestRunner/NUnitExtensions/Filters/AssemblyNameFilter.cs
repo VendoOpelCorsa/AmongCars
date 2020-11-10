@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:61b3b244a547db2ea70c16c1a44c42d9e142f87e2a7ae2ce70e13931aeddcfb3
-size 999
+using System;
+using NUnit.Framework.Interfaces;
+using NUnit.Framework.Internal.Filters;
+
+namespace UnityEngine.TestRunner.NUnitExtensions.Filters
+{
+    internal class AssemblyNameFilter : ValueMatchFilter
+    {
+        public AssemblyNameFilter(string assemblyName) : base(assemblyName) {}
+
+        public override bool Match(ITest test)
+        {
+            string assemblyName = string.Empty;
+            //Assembly fullname is in the format "Assembly-name, meta data ...", so extract the name by looking for the comma
+            if (test.TypeInfo != null && test.TypeInfo.Assembly != null && test.TypeInfo.FullName != null)
+                assemblyName = test.TypeInfo.Assembly.FullName.Substring(0, test.TypeInfo.Assembly.FullName.IndexOf(',')).TrimEnd(',');
+            return ExpectedValue.Equals(assemblyName, StringComparison.OrdinalIgnoreCase);
+        }
+
+        protected override string ElementName
+        {
+            get { return "id"; }
+        }
+    }
+}

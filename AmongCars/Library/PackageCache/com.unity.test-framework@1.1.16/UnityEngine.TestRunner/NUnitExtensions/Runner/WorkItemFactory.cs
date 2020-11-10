@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:03f8276ef76ba3c3717766918ba5f0a03b7b000555249b4a016bdaebe7012dff
-size 903
+using System.Collections;
+using NUnit.Framework.Interfaces;
+using NUnit.Framework.Internal;
+
+namespace UnityEngine.TestRunner.NUnitExtensions.Runner
+{
+    internal abstract class WorkItemFactory
+    {
+        public UnityWorkItem Create(ITest loadedTest, ITestFilter filter)
+        {
+            TestSuite suite = loadedTest as TestSuite;
+            if (suite != null)
+            {
+                return new CompositeWorkItem(suite, filter, this);
+            }
+
+            var testMethod = (TestMethod)loadedTest;
+            if (testMethod.Method.ReturnType.Type != typeof(IEnumerator))
+            {
+                return new DefaultTestWorkItem(testMethod, filter);
+            }
+
+            return Create(testMethod, filter, loadedTest);
+        }
+
+        protected abstract UnityWorkItem Create(TestMethod method, ITestFilter filter, ITest loadedTest);
+    }
+}

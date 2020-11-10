@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e157b1e708acc72226c8e6dd15264366aa423dd380408ad0d090cfc692d5a495
-size 1101
+using NUnit.Framework.Interfaces;
+using UnityEngine;
+using UnityEngine.TestTools.TestRunner;
+
+namespace UnityEditor.TestTools.TestRunner
+{
+    internal class TestRunnerCallback : ScriptableObject, ITestRunnerListener
+    {
+        public void RunStarted(ITest testsToRun)
+        {
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+        }
+
+        private void OnPlayModeStateChanged(PlayModeStateChange state)
+        {
+            if (state == PlayModeStateChange.ExitingPlayMode)
+            {
+                EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+                //We need to make sure we don't block NUnit thread in case we exit PlayMode earlier
+                PlaymodeTestsController.TryCleanup();
+            }
+        }
+
+        public void RunFinished(ITestResult testResults)
+        {
+            EditorApplication.isPlaying = false;
+        }
+
+        public void TestStarted(ITest testName)
+        {
+        }
+
+        public void TestFinished(ITestResult test)
+        {
+        }
+    }
+}

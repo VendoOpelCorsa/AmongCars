@@ -1,3 +1,42 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6ed31020d0f78250f9bf3616796995f64207531f00b252d88526473b98e25f71
-size 1039
+using System;
+using System.Diagnostics;
+using UnityEngine;
+
+namespace UnityEditor.TestTools.TestRunner
+{
+    [Serializable]
+    internal class ApplePlatformSetup : IPlatformSetup
+    {
+        [SerializeField]
+        private bool m_Stripping;
+
+        public ApplePlatformSetup(BuildTarget buildTarget)
+        {
+        }
+
+        public void Setup()
+        {
+            // Camera and fonts are stripped out and app crashes on iOS when test runner is trying to add a scene with... camera and text
+            m_Stripping = PlayerSettings.stripEngineCode;
+            PlayerSettings.stripEngineCode = false;
+        }
+
+        public void PostBuildAction()
+        {
+            // Restoring player setting as early as possible
+            PlayerSettings.stripEngineCode = m_Stripping;
+        }
+
+        public void PostSuccessfulBuildAction()
+        {
+        }
+
+        public void PostSuccessfulLaunchAction()
+        {
+        }
+
+        public void CleanUp()
+        {
+        }
+    }
+}

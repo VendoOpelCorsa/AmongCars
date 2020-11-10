@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3e891712e2407b4878ce2e594098d8d5be992cbdd95078b634f3225dba8eda9d
-size 845
+using System.IO;
+using System.Text;
+
+namespace VSCodeEditor
+{
+    public interface IFileIO
+    {
+        bool Exists(string fileName);
+
+        string ReadAllText(string fileName);
+        void WriteAllText(string fileName, string content);
+
+        void CreateDirectory(string pathName);
+    }
+
+    class FileIOProvider : IFileIO
+    {
+        public bool Exists(string fileName)
+        {
+            return File.Exists(fileName);
+        }
+
+        public string ReadAllText(string fileName)
+        {
+            return File.ReadAllText(fileName);
+        }
+
+        public void WriteAllText(string fileName, string content)
+        {
+            File.WriteAllText(fileName, content, Encoding.UTF8);
+        }
+
+        public void CreateDirectory(string pathName)
+        {
+            Directory.CreateDirectory(pathName);
+        }
+    }
+}

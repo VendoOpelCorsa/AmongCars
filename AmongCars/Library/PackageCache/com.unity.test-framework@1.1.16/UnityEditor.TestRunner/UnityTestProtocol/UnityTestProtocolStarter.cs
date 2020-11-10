@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f3bbd3daa3eb7d149b2935f70b0fb491a7850b85a04ca7d6364edb8eef82d49a
-size 1617
+using System;
+using System.Linq;
+using UnityEditor.Compilation;
+using UnityEditor.TestTools.TestRunner.Api;
+using UnityEngine;
+using UnityEngine.TestTools;
+
+namespace UnityEditor.TestTools.TestRunner.UnityTestProtocol
+{
+    [InitializeOnLoad]
+    internal static class UnityTestProtocolStarter
+    {
+        static UnityTestProtocolStarter()
+        {
+            var commandLineArgs = Environment.GetCommandLineArgs();
+            if (commandLineArgs.Contains("-automated") && commandLineArgs.Contains("-runTests")) // wanna have it only for utr run
+            {
+                var api = ScriptableObject.CreateInstance<TestRunnerApi>();
+                var listener = ScriptableObject.CreateInstance<UnityTestProtocolListener>();
+                api.RegisterCallbacks(listener);
+                CompilationPipeline.assemblyCompilationFinished += OnAssemblyCompilationFinished;
+            }
+        }
+
+        public static void OnAssemblyCompilationFinished(string assembly, CompilerMessage[] messages)
+        {
+            bool checkCompileErrors = RecompileScripts.Current == null || RecompileScripts.Current.ExpectScriptCompilationSuccess;
+
+            if (checkCompileErrors && messages.Any(x => x.type == CompilerMessageType.Error))
+            {
+                var compilerErrorMessages = messages.Where(x => x.type == CompilerMessageType.Error);
+                var utpMessageReporter = new UtpMessageReporter(new UtpDebugLogger());
+                utpMessageReporter.ReportAssemblyCompilationErrors(assembly, compilerErrorMessages);
+            }
+        }
+    }
+}

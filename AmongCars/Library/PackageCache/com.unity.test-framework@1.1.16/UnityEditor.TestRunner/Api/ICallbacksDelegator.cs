@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:38bf858b048595d97a10987715d8f035477d48d58c416039538f3d4fc932a057
-size 656
+using NUnit.Framework.Interfaces;
+
+namespace UnityEditor.TestTools.TestRunner.Api
+{
+    internal interface ICallbacksDelegator
+    {
+        void RunStarted(ITest testsToRun);
+        void RunStartedRemotely(byte[] testsToRunData);
+        void RunFinished(ITestResult testResults);
+        void RunFinishedRemotely(byte[] testResultsData);
+        void RunFailed(string failureMessage);
+        void TestStarted(ITest test);
+        void TestStartedRemotely(byte[] testStartedData);
+        void TestFinished(ITestResult result);
+        void TestFinishedRemotely(byte[] testResultsData);
+        void TestTreeRebuild(ITest test);
+    }
+}

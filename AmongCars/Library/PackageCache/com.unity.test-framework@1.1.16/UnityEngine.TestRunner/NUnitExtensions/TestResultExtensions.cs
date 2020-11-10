@@ -1,3 +1,77 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3de82c8797ffcf438b51248e2182570d39eb08d747f62c3994d0ca25913fb9cb
-size 2683
+using System;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using NUnit.Framework.Internal;
+
+namespace UnityEngine.TestRunner.NUnitExtensions
+{
+    internal static class TestResultExtensions
+    {
+        public static void RecordPrefixedException(this TestResult testResult, string prefix, Exception ex, ResultState resultState = null)
+
+        {
+            if (ex is NUnitException)
+            {
+                ex = ex.InnerException;
+            }
+
+            if (resultState == null)
+            {
+                resultState = testResult.ResultState == ResultState.Cancelled
+                    ? ResultState.Cancelled
+                    : ResultState.Error;
+            }
+
+            var exceptionMessage = ExceptionHelper.BuildMessage(ex);
+            string stackTrace = "--" + prefix + NUnit.Env.NewLine + ExceptionHelper.BuildStackTrace(ex);
+            if (testResult.StackTrace != null)
+            {
+                stackTrace = testResult.StackTrace + NUnit.Env.NewLine + stackTrace;
+            }
+
+            if (testResult.Test.IsSuite)
+            {
+                resultState = resultState.WithSite(FailureSite.TearDown);
+            }
+
+            if (ex is ResultStateException)
+            {
+                exceptionMessage = ex.Message;
+                resultState = ((ResultStateException)ex).ResultState;
+                stackTrace = StackFilter.Filter(ex.StackTrace);
+            }
+
+            string message = (string.IsNullOrEmpty(prefix) ? "" : (prefix + " : ")) + exceptionMessage;
+            if (testResult.Message != null)
+            {
+                message = testResult.Message + NUnit.Env.NewLine + message;
+            }
+
+            testResult.SetResult(resultState, message, stackTrace);
+        }
+
+        public static void RecordPrefixedError(this TestResult testResult, string prefix, string error, ResultState resultState = null)
+
+        {
+            if (resultState == null)
+            {
+                resultState = testResult.ResultState == ResultState.Cancelled
+                    ? ResultState.Cancelled
+                    : ResultState.Error;
+            }
+            
+            if (testResult.Test.IsSuite)
+            {
+                resultState = resultState.WithSite(FailureSite.TearDown);
+            }
+
+            string message = (string.IsNullOrEmpty(prefix) ? "" : (prefix + " : ")) + error;
+            if (testResult.Message != null)
+            {
+                message = testResult.Message + NUnit.Env.NewLine + message;
+            }
+
+            testResult.SetResult(resultState, message);
+        }
+    }
+}

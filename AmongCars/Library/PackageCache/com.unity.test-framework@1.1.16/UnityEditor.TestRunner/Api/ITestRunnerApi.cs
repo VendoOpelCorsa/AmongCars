@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:58a08361411db5761c248edca50cb023950ed1972b88d9465f81dd2e2ca19d01
-size 436
+using System;
+
+namespace UnityEditor.TestTools.TestRunner.Api
+{
+    internal interface ITestRunnerApi
+    {
+        string Execute(ExecutionSettings executionSettings);
+        void RegisterCallbacks<T>(T testCallbacks, int priority = 0) where T : ICallbacks;
+        void UnregisterCallbacks<T>(T testCallbacks) where T : ICallbacks;
+        void RetrieveTestList(TestMode testMode, Action<ITestAdaptor> callback);
+    }
+}

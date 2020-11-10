@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0e25eef6289eb1f83f363c59794d3c7030e62dd733a029ceaa36880db0afcb0a
-size 405
+using System;
+using System.Collections;
+
+namespace UnityEngine.TestTools
+{
+    internal class TestCommandPcHelper
+    {
+        public virtual void SetEnumeratorPC(IEnumerator enumerator, int pc)
+        {
+            // Noop implementation used in playmode.
+        }
+
+        public virtual int GetEnumeratorPC(IEnumerator enumerator)
+        {
+            return 0;
+        }
+    }
+}

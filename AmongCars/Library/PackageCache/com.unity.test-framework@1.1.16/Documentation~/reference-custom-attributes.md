@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9a6f5bdf97ff8c18a68efab3c3becc7f50287573aa9849fc99e82b5bc1380d8c
-size 939
+# Custom attributes
+
+As a part of UTF’s public API we provide the following attributes:
+
+* [ConditionalIgnore attribute](./reference-attribute-conditionalignore.md)
+* [PostBuildCleanup attribute](./reference-setup-and-cleanup.md#prebuildsetup-and-postbuildcleanup)
+* [PrebuildSetup attribute](./reference-setup-and-cleanup.md#prebuildsetup-and-postbuildcleanup)
+* [TestMustExpectAllLogs attribute](./reference-attribute-testmustexpectalllogs.md)
+* [TestPlayerBuildModifier attribute](./reference-attribute-testplayerbuildmodifier.md)
+* [TestRunCallback attribute](./reference-attribute-testruncallback.md)
+* [UnityPlatform attribute](./reference-attribute-unityplatform.md)
+* [UnitySetUp attribute](./reference-actions-outside-tests.md#unitysetup-and-unityteardown)
+* [UnityTearDown attribute](./reference-actions-outside-tests.md#unitysetup-and-unityteardown)
+* [UnityTest attribute](./reference-attribute-unitytest.md)
+

@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:56f29f1952bc1d749dd554e816b4cc337c0a6333e799fa0e7974df2b50bbb53e
-size 1228
+using System.Text.RegularExpressions;
+using UnityEngine.TestTools.Logging;
+
+namespace UnityEngine.TestTools
+{
+    public static class LogAssert
+    {
+        public static void Expect(LogType type, string message)
+        {
+            LogScope.Current.ExpectedLogs.Enqueue(new LogMatch() { LogType = type, Message = message });
+        }
+
+        public static void Expect(LogType type, Regex message)
+        {
+            LogScope.Current.ExpectedLogs.Enqueue(new LogMatch() { LogType = type, MessageRegex = message });
+        }
+
+        public static void NoUnexpectedReceived()
+        {
+            LogScope.Current.NoUnexpectedReceived();
+        }
+
+        public static bool ignoreFailingMessages
+        {
+            get
+            {
+                return LogScope.Current.IgnoreFailingMessages;
+            }
+            set
+            {
+                if (value != LogScope.Current.IgnoreFailingMessages)
+                {
+                    Debug.LogFormat(LogType.Log, LogOption.NoStacktrace, null, "\nIgnoreFailingMessages:" + (value? "true":"false"));
+                }
+                LogScope.Current.IgnoreFailingMessages = value;
+            }
+        }
+    }
+}
