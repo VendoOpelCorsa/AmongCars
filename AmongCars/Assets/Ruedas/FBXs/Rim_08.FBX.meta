@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: db715fb9a3e357949889c41c3b972d64
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Rim_08_InsideDetailed
+    100004: Rim_08_Lod0
+    100006: Rim_08_Lod1
+    100008: Rim_08_L_InsideDetailed
+    100010: Rim_08_L_Lod0
+    100012: Rim_08_L_Lod1
+    100014: Rim_08_M_InsideDetailed
+    100016: Rim_08_M_Lod0
+    100018: Rim_08_M_Lod1
+    100020: Rim_08_S_InsideDetailed
+    100022: Rim_08_S_Lod0
+    100024: Rim_08_S_Lod1
+    100026: Rim_08_XL_InsideDetailed
+    100028: Rim_08_XL_Lod0
+    100030: Rim_08_XL_Lod1
+    400000: //RootNode
+    400002: Rim_08_InsideDetailed
+    400004: Rim_08_Lod0
+    400006: Rim_08_Lod1
+    400008: Rim_08_L_InsideDetailed
+    400010: Rim_08_L_Lod0
+    400012: Rim_08_L_Lod1
+    400014: Rim_08_M_InsideDetailed
+    400016: Rim_08_M_Lod0
+    400018: Rim_08_M_Lod1
+    400020: Rim_08_S_InsideDetailed
+    400022: Rim_08_S_Lod0
+    400024: Rim_08_S_Lod1
+    400026: Rim_08_XL_InsideDetailed
+    400028: Rim_08_XL_Lod0
+    400030: Rim_08_XL_Lod1
+    2100000: No Name
+    2100002: Rim_08
+    2300000: Rim_08_InsideDetailed
+    2300002: Rim_08_Lod0
+    2300004: Rim_08_Lod1
+    2300006: Rim_08_L_InsideDetailed
+    2300008: Rim_08_L_Lod0
+    2300010: Rim_08_L_Lod1
+    2300012: Rim_08_M_InsideDetailed
+    2300014: Rim_08_M_Lod0
+    2300016: Rim_08_M_Lod1
+    2300018: Rim_08_S_InsideDetailed
+    2300020: Rim_08_S_Lod0
+    2300022: Rim_08_S_Lod1
+    2300024: Rim_08_XL_InsideDetailed
+    2300026: Rim_08_XL_Lod0
+    2300028: Rim_08_XL_Lod1
+    3300000: Rim_08_InsideDetailed
+    3300002: Rim_08_Lod0
+    3300004: Rim_08_Lod1
+    3300006: Rim_08_L_InsideDetailed
+    3300008: Rim_08_L_Lod0
+    3300010: Rim_08_L_Lod1
+    3300012: Rim_08_M_InsideDetailed
+    3300014: Rim_08_M_Lod0
+    3300016: Rim_08_M_Lod1
+    3300018: Rim_08_S_InsideDetailed
+    3300020: Rim_08_S_Lod0
+    3300022: Rim_08_S_Lod1
+    3300024: Rim_08_XL_InsideDetailed
+    3300026: Rim_08_XL_Lod0
+    3300028: Rim_08_XL_Lod1
+    4300000: Rim_08_InsideDetailed
+    4300002: Rim_08_Lod0
+    4300004: Rim_08_Lod1
+    4300006: Rim_08_M_InsideDetailed
+    4300008: Rim_08_M_Lod0
+    4300010: Rim_08_M_Lod1
+    4300012: Rim_08_S_Lod0
+    4300014: Rim_08_S_Lod1
+    4300016: Rim_08_S_InsideDetailed
+    4300018: Rim_08_L_Lod0
+    4300020: Rim_08_L_Lod1
+    4300022: Rim_08_L_InsideDetailed
+    4300024: Rim_08_XL_Lod0
+    4300026: Rim_08_XL_Lod1
+    4300028: Rim_08_XL_InsideDetailed
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

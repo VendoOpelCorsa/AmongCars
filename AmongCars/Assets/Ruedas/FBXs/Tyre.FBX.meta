@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: b6dc4f615347d0e43ad06226bd48ab5a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Tyre_L_InsideDetailed
+    100004: Tyre_L_Lod0
+    100006: Tyre_L_Lod1
+    100008: Tyre_L_Lod2
+    100010: Tyre_M_InsideDetailed
+    100012: Tyre_M_Lod0
+    100014: Tyre_M_Lod1
+    100016: Tyre_M_Lod2
+    100018: Tyre_S_InsideDetailed
+    100020: Tyre_S_Lod0
+    100022: Tyre_S_Lod1
+    100024: Tyre_S_Lod2
+    100026: Tyre_XL_InsideDetailed
+    100028: Tyre_XL_Lod0
+    100030: Tyre_XL_Lod1
+    100032: Tyre_XL_Lod2
+    400000: //RootNode
+    400002: Tyre_L_InsideDetailed
+    400004: Tyre_L_Lod0
+    400006: Tyre_L_Lod1
+    400008: Tyre_L_Lod2
+    400010: Tyre_M_InsideDetailed
+    400012: Tyre_M_Lod0
+    400014: Tyre_M_Lod1
+    400016: Tyre_M_Lod2
+    400018: Tyre_S_InsideDetailed
+    400020: Tyre_S_Lod0
+    400022: Tyre_S_Lod1
+    400024: Tyre_S_Lod2
+    400026: Tyre_XL_InsideDetailed
+    400028: Tyre_XL_Lod0
+    400030: Tyre_XL_Lod1
+    400032: Tyre_XL_Lod2
+    2100000: Wheel
+    2300000: Tyre_L_InsideDetailed
+    2300002: Tyre_L_Lod0
+    2300004: Tyre_L_Lod1
+    2300006: Tyre_L_Lod2
+    2300008: Tyre_M_InsideDetailed
+    2300010: Tyre_M_Lod0
+    2300012: Tyre_M_Lod1
+    2300014: Tyre_M_Lod2
+    2300016: Tyre_S_InsideDetailed
+    2300018: Tyre_S_Lod0
+    2300020: Tyre_S_Lod1
+    2300022: Tyre_S_Lod2
+    2300024: Tyre_XL_InsideDetailed
+    2300026: Tyre_XL_Lod0
+    2300028: Tyre_XL_Lod1
+    2300030: Tyre_XL_Lod2
+    3300000: Tyre_L_InsideDetailed
+    3300002: Tyre_L_Lod0
+    3300004: Tyre_L_Lod1
+    3300006: Tyre_L_Lod2
+    3300008: Tyre_M_InsideDetailed
+    3300010: Tyre_M_Lod0
+    3300012: Tyre_M_Lod1
+    3300014: Tyre_M_Lod2
+    3300016: Tyre_S_InsideDetailed
+    3300018: Tyre_S_Lod0
+    3300020: Tyre_S_Lod1
+    3300022: Tyre_S_Lod2
+    3300024: Tyre_XL_InsideDetailed
+    3300026: Tyre_XL_Lod0
+    3300028: Tyre_XL_Lod1
+    3300030: Tyre_XL_Lod2
+    4300000: Tyre_M_InsideDetailed
+    4300002: Tyre_M_Lod0
+    4300004: Tyre_M_Lod1
+    4300006: Tyre_M_Lod2
+    4300008: Tyre_S_Lod1
+    4300010: Tyre_S_InsideDetailed
+    4300012: Tyre_S_Lod0
+    4300014: Tyre_S_Lod2
+    4300016: Tyre_L_Lod2
+    4300018: Tyre_L_Lod1
+    4300020: Tyre_L_InsideDetailed
+    4300022: Tyre_L_Lod0
+    4300024: Tyre_XL_InsideDetailed
+    4300026: Tyre_XL_Lod1
+    4300028: Tyre_XL_Lod2
+    4300030: Tyre_XL_Lod0
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
