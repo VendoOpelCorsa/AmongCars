@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/City.unity
     guid: 017571f29c8373f46b0534c89de99fcf
   m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c59267bb47ad3ed498b5d882183bea83,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9f1db5c366e9fc441b711bef6669c28e,
       type: 2}
