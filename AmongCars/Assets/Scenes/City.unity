@@ -14490,6 +14490,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteriorZonaMontaje
       objectReference: {fileID: 0}
+    - target: {fileID: 6088538200892048272, guid: 2ef94e28d1de20c4fbd9d1ba21345624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6088538200892048273, guid: 2ef94e28d1de20c4fbd9d1ba21345624,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15341,7 +15346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e503e899647b4f444b7e1eb632fbc1de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.88
+      value: 20.24
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e503e899647b4f444b7e1eb632fbc1de, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15369,7 +15374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e503e899647b4f444b7e1eb632fbc1de, type: 3}
       propertyPath: m_RootOrder
-      value: 59
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e503e899647b4f444b7e1eb632fbc1de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -23839,6 +23844,19 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 0e75fa52d688ece4ca8c28b5b06ae285, type: 3}
       propertyPath: m_LocalScale.z
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: 0e75fa52d688ece4ca8c28b5b06ae285, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.979881
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: 0e75fa52d688ece4ca8c28b5b06ae285, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.574
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141472461555150671, guid: 0e75fa52d688ece4ca8c28b5b06ae285,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.454
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e75fa52d688ece4ca8c28b5b06ae285, type: 3}
