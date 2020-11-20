@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlantInteraction : ButtonColliderClick
+public class PlantInteraction : OnceInteractive
 {
-    public override void OnClick() { }
+    public override void OnClick() => print("awdawd");
 }

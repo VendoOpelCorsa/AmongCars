@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         bool sprint = controls.Player.Sprint.ReadValue<float>() == 1;
         bool jump = controls.Player.Jump.ReadValue<float>() == 1;
 
-        var c = PlayerLook.GetRotation();
+        var c = VREmulator.GetRotation();
         Vector3 dir = c * Vector3.right * x + c * Vector3.forward * z;
 
         bool grounded = IsOnGround();

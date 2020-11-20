@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class ColliderClick : MonoBehaviour
+public abstract class Interactive : MonoBehaviour
 {
 
-    public void WasClicked()
+    public virtual void WasClicked()
     {
         /*string str = "Click " + gameObject.name;
         Debug.Log(str);*/
