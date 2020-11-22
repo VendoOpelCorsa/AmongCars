@@ -7,12 +7,14 @@ using System.Runtime.CompilerServices;
 
 public class DialogueManager : MonoBehaviour
 {
+    public AmongCars controls;
+
     public NPC npc;
     public TMP_Text npcName;
     public Image npcImage;
 
     public GameObject player;
-    
+
     Queue<string> sentences;
 
     public GameObject dialoguePanel;
@@ -34,7 +36,7 @@ public class DialogueManager : MonoBehaviour
 
     string activeSentence;
     public float typingSpeed;
-    
+
     AudioSource myAudio;
     public AudioClip speakSound;
 
@@ -44,11 +46,14 @@ public class DialogueManager : MonoBehaviour
         myAudio = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
+    protected void Awake() => controls = new AmongCars();
+    protected void OnEnable() => controls?.Enable();
+    protected void OnDisable() => controls?.Disable();
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {   
+        {
             print("Prueba");
             player = other.gameObject;
             dialoguePanel.SetActive(true);
@@ -71,7 +76,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    public  void DisplayNextSentence()
+    public void DisplayNextSentence()
     {
         if (sentences.Count <= 0)
         {
@@ -81,7 +86,7 @@ public class DialogueManager : MonoBehaviour
 
         activeSentence = sentences.Dequeue();
         displayText.text = activeSentence;
-        
+
         StopAllCoroutines();
         StartCoroutine(TypeTheSentence(activeSentence));
     }
@@ -97,34 +102,37 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        ShowOptions(); 
+        ShowOptions();
     }
 
-    
+
 
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
-        {     
-            if(Input.GetKeyDown(KeyCode.I)){
+        {
+            if (controls.Player.Option1.ReadValue<float>() == 1)
+            {
                 ChooseOption(1);
             }
-            if(Input.GetKeyDown(KeyCode.O)){
+            if (controls.Player.Option2.ReadValue<float>() == 1)
+            {
                 ChooseOption(2);
                 //button2.AddListener(()=>ChooseOption(2));
             }
-            if(Input.GetKeyDown(KeyCode.P)){
+            if (controls.Player.Option3.ReadValue<float>() == 1)
+            {
                 ChooseOption(3);
                 //button3.AddListener(()=>ChooseOption(3));
             }
             //button1.onClick.AddListener(() => ChooseOption(1));
             //button2.onClick.AddListener(() => ChooseOption(2));
             //button3.onClick.AddListener(() => ChooseOption(3));
-            
-            if (optionsPanel.activeInHierarchy == false )
+
+            if (optionsPanel.activeInHierarchy == false)
             {
                 btOut.onClick.AddListener(() => ClosePanel());
-                if(Input.GetKeyDown(KeyCode.Space))
+                if (controls.Player.Salir.ReadValue<float>() == 1)
                 {
                     ClosePanel();
                     StopAllCoroutines();
@@ -143,7 +151,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void ShowOptions() 
+    public void ShowOptions()
     {
         optionsPanel.SetActive(true);
         string[] options = npc.GetOptions();
@@ -156,25 +164,26 @@ public class DialogueManager : MonoBehaviour
     {
         switch (button)
         {
-            case 1: 
+            case 1:
                 NextSentence(1);
                 break;
             case 2:
                 NextSentence(2);
                 break;
             case 3:
-                 NextSentence(3);
+                NextSentence(3);
                 break;
         }
     }
 
-    private void NextSentence(int curResponseTracker) {
+    private void NextSentence(int curResponseTracker)
+    {
 
         displayText.text = npc.GetSentence(curResponseTracker);
         optionsPanel.SetActive(false);
     }
 
-    private void ClosePanel() 
+    private void ClosePanel()
     {
         dialoguePanel.SetActive(false);
         optionsPanel.SetActive(false);

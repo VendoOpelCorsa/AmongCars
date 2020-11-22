@@ -49,6 +49,38 @@ public class @AmongCars : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Integer"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Option1"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a23cde7-fd1f-445a-960f-6310cf200061"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Option2"",
+                    ""type"": ""Button"",
+                    ""id"": ""ffe5be8b-5e5e-4de5-93fa-e6743918b41e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Option3"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9d73783-a8ef-4648-85cd-a4efb8def9a4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Salir"",
+                    ""type"": ""Button"",
+                    ""id"": ""0806d57a-4b20-4a4f-9663-ded3d2b46e6c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -57,7 +89,7 @@ public class @AmongCars : IInputActionCollection, IDisposable
                     ""id"": ""978bfe49-cc26-4a3d-ab7b-7d7a29327403"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""InvertVector2"",
                     ""groups"": "";Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
@@ -247,6 +279,94 @@ public class @AmongCars : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3fd91e1-1c45-4ac1-bf9b-c8532b9d93ea"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Option1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab4d2f6c-b1c0-4c7e-a3c6-119409c4ef6a"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Option1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc8d413c-669d-479d-8d59-2930a6a88d59"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Option2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08289e05-847d-455d-9df7-e28118c576c5"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Option2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""758c724e-2251-4ef0-a315-02b70d3a3ce7"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse;Gamepad"",
+                    ""action"": ""Option3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18f54d8f-963d-4cec-8e2e-e521550b39d2"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Option3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d18a51c-df75-47a2-9c52-21bc1b68fc6d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse;Gamepad"",
+                    ""action"": ""Salir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ddf7a8da-ff00-45ee-8262-27d1bba3ad4e"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Salir"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -850,6 +970,10 @@ public class @AmongCars : IInputActionCollection, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_Option1 = m_Player.FindAction("Option1", throwIfNotFound: true);
+        m_Player_Option2 = m_Player.FindAction("Option2", throwIfNotFound: true);
+        m_Player_Option3 = m_Player.FindAction("Option3", throwIfNotFound: true);
+        m_Player_Salir = m_Player.FindAction("Salir", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
@@ -915,6 +1039,10 @@ public class @AmongCars : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_Option1;
+    private readonly InputAction m_Player_Option2;
+    private readonly InputAction m_Player_Option3;
+    private readonly InputAction m_Player_Salir;
     public struct PlayerActions
     {
         private @AmongCars m_Wrapper;
@@ -923,6 +1051,10 @@ public class @AmongCars : IInputActionCollection, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @Option1 => m_Wrapper.m_Player_Option1;
+        public InputAction @Option2 => m_Wrapper.m_Player_Option2;
+        public InputAction @Option3 => m_Wrapper.m_Player_Option3;
+        public InputAction @Salir => m_Wrapper.m_Player_Salir;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -944,6 +1076,18 @@ public class @AmongCars : IInputActionCollection, IDisposable
                 @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @Option1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOption1;
+                @Option1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOption1;
+                @Option1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOption1;
+                @Option2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOption2;
+                @Option2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOption2;
+                @Option2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOption2;
+                @Option3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOption3;
+                @Option3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOption3;
+                @Option3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOption3;
+                @Salir.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSalir;
+                @Salir.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSalir;
+                @Salir.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSalir;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -960,6 +1104,18 @@ public class @AmongCars : IInputActionCollection, IDisposable
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
+                @Option1.started += instance.OnOption1;
+                @Option1.performed += instance.OnOption1;
+                @Option1.canceled += instance.OnOption1;
+                @Option2.started += instance.OnOption2;
+                @Option2.performed += instance.OnOption2;
+                @Option2.canceled += instance.OnOption2;
+                @Option3.started += instance.OnOption3;
+                @Option3.performed += instance.OnOption3;
+                @Option3.canceled += instance.OnOption3;
+                @Salir.started += instance.OnSalir;
+                @Salir.performed += instance.OnSalir;
+                @Salir.canceled += instance.OnSalir;
             }
         }
     }
@@ -1120,6 +1276,10 @@ public class @AmongCars : IInputActionCollection, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnOption1(InputAction.CallbackContext context);
+        void OnOption2(InputAction.CallbackContext context);
+        void OnOption3(InputAction.CallbackContext context);
+        void OnSalir(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
