@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebe38a6a88be42e39ebd71b547fb3da, type: 3}
   m_Name: turquesa
   m_EditorClassIdentifier: 
-  name: turquesa
+  name: Turquesa
   icon: icon_turquesa
   sentences:
   - "Hola Jacinto, \xBFc\xF3mo est\xE1s? Yo fatal. Hoy por la ma\xF1ana estaba criticando

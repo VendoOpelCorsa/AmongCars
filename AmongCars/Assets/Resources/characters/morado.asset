@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebe38a6a88be42e39ebd71b547fb3da, type: 3}
+  m_Name: morado
+  m_EditorClassIdentifier: 
+  name: Morado
+  icon: icon_morado
+  sentences:
+  - 'Bua chaval, menuda liada eh '
+  - "Es que no va el t\xEDo y me roba MI destornillador. Hab\xE9rmelo pedido. Fue
+    por hacerse el chulito delante de Rosita."
+  - "Algo o\xED s\xED, pero yo pensaba que ella estaba con A\xF1il."
+  - "Pues mal, ahora encima somos uno menos. No s\xE9 si lo tendremos todo listo
+    para ma\xF1ana."
+  playerResponses:
+  - "\xBFA ti no te ca\xEDa muy bien verdad?"
+  - "Se comenta que sal\xEDa con Rosita\u2026"
+  - "\xBFC\xF3mo vas con los amortiguadores?"

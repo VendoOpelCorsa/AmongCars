@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebe38a6a88be42e39ebd71b547fb3da, type: 3}
+  m_Name: naranja
+  m_EditorClassIdentifier: 
+  name: Naranja
+  icon: icon_naranja
+  sentences:
+  - "\xBFYa te han contado que discut\xED con Verde no? Era de esperar. Pero como
+    no le voy a re\xF1ir, si es un in\xFAtil. Bueno, era\u2026"
+  - 'No voy a acusar a nadie, pero se llevaba mal con Morado '
+  - "Creo que est\xE1 en su despacho. Acabo de acordarme que ayer vi a Verde saliendo
+    del despacho del jefe."
+  - Cuanto antes lo asumamos, mejor.
+  playerResponses:
+  - "\xBFQui\xE9n crees que ha sido? "
+  - "\xBFViste a Turquesa? "
+  - "Que bestia t\xEDa\u2026 "
