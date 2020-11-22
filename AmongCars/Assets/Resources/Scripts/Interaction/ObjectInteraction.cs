@@ -62,8 +62,7 @@ public class ObjectInteraction : Interactive
                 OnExit();
     }
 
-    public static void ShowDialog(bool b)
-    {
-        dialoguePanel.SetActive(b);
-    }
+    public static void ShowDialog(bool b) => dialoguePanel.SetActive(b);
+
+    public static void ShowIcon(bool b) => icon.SetActive(b);
 }

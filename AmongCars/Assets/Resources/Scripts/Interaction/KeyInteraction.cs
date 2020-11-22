@@ -11,5 +11,7 @@ public class KeyInteraction : ObjectInteraction
         base.OnInteract();
 
         Found = true;
+
+        gameObject.SetActive(false);
     }
 }

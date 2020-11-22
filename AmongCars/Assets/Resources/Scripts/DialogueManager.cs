@@ -56,6 +56,7 @@ public class DialogueManager : MonoBehaviour
         {
             //print("Prueba");
             player = other.gameObject;
+            ObjectInteraction.ShowIcon(true);
             ObjectInteraction.ShowDialog(true);
             npcName.text = npc.name;
             string url = "Sprites/" + npc.icon;
