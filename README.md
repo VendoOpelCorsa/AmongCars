@@ -32,6 +32,12 @@ Vendo Opel Corsa 🚘. We are six college students from Spain who have enrolled 
 <img src="https://contributors-img.web.app/image?repo=VendoOpelCorsa/AmongCars" />
 </a>
 
+## License
+
+More info 📃 <a href="https://github.com/VendoOpelCorsa/AmongCars/blob/master/LICENSE">LICENSE</a>
+
+GNU © Vendo Opel Corsa 
+
 -------------------------------------------------------------------
 _Universidad de Oviedo - Ingeniería Informática del Software_
 
