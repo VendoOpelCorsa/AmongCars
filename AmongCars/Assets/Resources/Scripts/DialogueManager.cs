@@ -105,8 +105,6 @@ public class DialogueManager : MonoBehaviour
         ShowOptions();
     }
 
-
-
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))

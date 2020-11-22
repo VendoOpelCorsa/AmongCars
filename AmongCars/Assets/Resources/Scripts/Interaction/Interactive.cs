@@ -35,7 +35,7 @@ public abstract class Interactive : MonoBehaviour
             lookTimer += Time.deltaTime;
             if (lookTimer > timerDuration)
             {
-                lookTimer = 0f;
+                lookTimer = -5f;
                 //Debug.Log("Object timer click");
                 WasClicked();
             }
