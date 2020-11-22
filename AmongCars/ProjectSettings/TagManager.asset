@@ -7,6 +7,7 @@ TagManager:
   - title
   - displayText
   - dialoguePanel
+  - objetos
   layers:
   - Default
   - TransparentFX

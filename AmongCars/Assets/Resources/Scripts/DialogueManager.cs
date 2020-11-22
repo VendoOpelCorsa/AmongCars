@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
 
     Queue<string> sentences;
 
-    public GameObject dialoguePanel;
+    //public GameObject dialoguePanel;
     public TMP_Text displayText;
 
     public GameObject optionsPanel;
@@ -54,9 +54,9 @@ public class DialogueManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            print("Prueba");
+            //print("Prueba");
             player = other.gameObject;
-            dialoguePanel.SetActive(true);
+            ObjectInteraction.ShowDialog(true);
             npcName.text = npc.name;
             string url = "Sprites/" + npc.icon;
             npcImage.sprite = Resources.Load<Sprite>(url);
@@ -130,7 +130,7 @@ public class DialogueManager : MonoBehaviour
 
             if (optionsPanel.activeInHierarchy == false)
             {
-                btOut.onClick.AddListener(() => ClosePanel());
+                btOut?.onClick.AddListener(() => ClosePanel());
                 if (controls.Player.Salir.ReadValue<float>() == 1)
                 {
                     ClosePanel();
@@ -184,7 +184,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ClosePanel()
     {
-        dialoguePanel.SetActive(false);
+        ObjectInteraction.ShowDialog(false);
         optionsPanel.SetActive(false);
     }
 }

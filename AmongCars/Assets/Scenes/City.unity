@@ -6534,17 +6534,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 00078d79400b92e448b1fdc85be886cc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.74
+      value: 81.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 00078d79400b92e448b1fdc85be886cc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 00078d79400b92e448b1fdc85be886cc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 64.38
+      value: 66.89
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 00078d79400b92e448b1fdc85be886cc,
         type: 3}
@@ -14077,7 +14077,7 @@ GameObject:
   - component: {fileID: 495836795}
   m_Layer: 0
   m_Name: Tornillos
-  m_TagString: Untagged
+  m_TagString: objetos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14178,7 +14178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40c537e0ab3cc148885acf96eaa0b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDuration: 1.25
   text: "\xBFPor qu\xE9 hay tornillos aqui?"
   title: Tornillos
 --- !u!1001 &497392242
@@ -15926,7 +15925,7 @@ GameObject:
   - component: {fileID: 565748460}
   m_Layer: 0
   m_Name: LlaveInglesa
-  m_TagString: Untagged
+  m_TagString: objetos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15939,7 +15938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565748458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.619, y: 1.968, z: 63.19}
+  m_LocalPosition: {x: 78.619, y: 1.968, z: 49.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1590059479}
@@ -16003,7 +16002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40c537e0ab3cc148885acf96eaa0b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDuration: 1.25
   text: "\xBFY esta llave?"
   title: Llave Inglesa
 --- !u!65 &565748462
@@ -16017,8 +16015,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.21, y: 0.32, z: 1.39}
-  m_Center: {x: -0.24, y: 0.12, z: -0.46}
+  m_Size: {x: 1.21, y: 0.32, z: 3.060379}
+  m_Center: {x: -0.24000001, y: 0.120000005, z: 0.56357956}
 --- !u!1001 &565825041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16401,7 +16399,7 @@ GameObject:
   - component: {fileID: 580394587}
   m_Layer: 0
   m_Name: Destornillador
-  m_TagString: Untagged
+  m_TagString: objetos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16433,7 +16431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40c537e0ab3cc148885acf96eaa0b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDuration: 1.25
   text: Este debe ser el destornillador de Morado...
   title: Destornillador
 --- !u!65 &580394586
@@ -34955,7 +34952,7 @@ GameObject:
   - component: {fileID: 1262680560}
   m_Layer: 0
   m_Name: Cuchillo
-  m_TagString: Untagged
+  m_TagString: objetos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35030,7 +35027,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40c537e0ab3cc148885acf96eaa0b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDuration: 1.25
   text: "\xBFNo falta uno?"
   title: Cuchillo
 --- !u!65 &1262680562

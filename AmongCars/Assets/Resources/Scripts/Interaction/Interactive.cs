@@ -1,66 +1,23 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public abstract class Interactive : MonoBehaviour
 {
+    private bool isLooked;
 
-    public virtual void WasClicked()
-    {
-        /*string str = "Click " + gameObject.name;
-        Debug.Log(str);*/
-        blocked = true;
+    public abstract void OnInteract();
 
-        if (isLooked)
-            OnExit();
-
-        OnClick();
-
-        blocked = false;
-    }
-
-    public abstract void OnClick();
-
-    private bool blocked = false;
-    private bool isLooked = false;
-    public float timerDuration = 1.25f;
-    private float lookTimer = 0f;
+    protected virtual void OnExit() { }
 
     protected void Update()
     {
         if (isLooked)
-        {
-            lookTimer += Time.deltaTime;
-            if (lookTimer > timerDuration)
-            {
-                lookTimer = -5f;
-                //Debug.Log("Object timer click");
-                WasClicked();
-            }
-        }
-        else
-        {
-            lookTimer = 0f;
-        }
+            OnInteract();
+        /*else
+            OnExit();*/
     }
 
     public void setIsLooked(bool looked)
     {
-        if (blocked)
-            return;
-
-        if (looked)
-            OnEnter();
-        else
-            OnExit();
-
         isLooked = looked;
     }
-
-    public virtual void OnEnter() { }
-    public virtual void OnExit() { }
-
-    void OnDisable() => OnExit();
 }

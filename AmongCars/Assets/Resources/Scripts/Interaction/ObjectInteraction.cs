@@ -5,14 +5,14 @@ using UnityEngine;
 public class ObjectInteraction : Interactive
 {
 
+    private static TMP_Text titleTX;
+    private static TMP_Text displayTX;
+    private static GameObject dialoguePanel, icon;
+
     private AmongCars controls;
 
-    public String text;
-    public String title;
-
-    private TMP_Text titleTX;
-    private TMP_Text displayTX;
-    private GameObject dialoguePanel;
+    public string text;
+    public string title;
 
     private bool open;
 
@@ -20,25 +20,38 @@ public class ObjectInteraction : Interactive
     protected void OnEnable() => controls?.Enable();
     protected void OnDisable() => controls?.Disable();
 
-    public override void OnClick()
+    public override void OnInteract()
     {
         open = true;
-        print(text);
 
-        dialoguePanel.SetActive(true);
+        ShowDialog(true);
+        icon.SetActive(false);
         titleTX.text = title;
 
         displayTX.text = text;
     }
 
+    protected override void OnExit()
+    {
+        open = false;
+
+        ShowDialog(false);
+        icon.SetActive(true);
+    }
+
     void Start()
     {
+        if (dialoguePanel != null)
+            return;
+
         dialoguePanel = GameObject.Find("DialoguePanel");
 
         titleTX = GameObject.Find("NPC Name").GetComponent<TMP_Text>();
         displayTX = GameObject.Find("DisplayText").GetComponent<TMP_Text>();
+        icon = GameObject.Find("Icon");
 
-        dialoguePanel.SetActive(false);
+        icon.SetActive(true);
+        ShowDialog(false);
     }
 
     void Update()
@@ -47,9 +60,10 @@ public class ObjectInteraction : Interactive
 
         if (open)
             if (controls.Player.Salir.ReadValue<float>() == 1)
-            {
-                dialoguePanel.SetActive(false);
-                open = false;
-            }
+                OnExit();
+    }
+
+    public static void ShowDialog(bool b) {
+        dialoguePanel.SetActive(b);
     }
 }
