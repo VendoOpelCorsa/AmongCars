@@ -31,12 +31,11 @@ public class ObjectInteraction : Interactive
         displayTX.text = text;
     }
 
-    protected override void OnExit()
+    protected void OnExit()
     {
         open = false;
 
         ShowDialog(false);
-        icon.SetActive(true);
     }
 
     void Start()
@@ -63,7 +62,8 @@ public class ObjectInteraction : Interactive
                 OnExit();
     }
 
-    public static void ShowDialog(bool b) {
+    public static void ShowDialog(bool b)
+    {
         dialoguePanel.SetActive(b);
     }
 }

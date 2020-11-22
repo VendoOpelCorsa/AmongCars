@@ -97,6 +97,7 @@ public class DialogueManager : MonoBehaviour
 
         foreach (char letter in sentence.ToCharArray())
         {
+            ObjectInteraction.ShowDialog(true);
             displayText.text += letter;
             //myAudio.PlayOneShot(speakSound);
             yield return new WaitForSeconds(typingSpeed);

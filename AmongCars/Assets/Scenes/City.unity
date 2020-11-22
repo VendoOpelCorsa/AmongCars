@@ -1814,8 +1814,8 @@ GameObject:
   m_Component:
   - component: {fileID: 51071630}
   - component: {fileID: 51071633}
-  - component: {fileID: 51071632}
   - component: {fileID: 51071631}
+  - component: {fileID: 51071632}
   m_Layer: 0
   m_Name: Llave
   m_TagString: objetos
@@ -1890,7 +1890,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 51071629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a40c537e0ab3cc148885acf96eaa0b7f, type: 3}
+  m_Script: {fileID: 11500000, guid: def6f676d3593f741bce36e13769e434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: Anda, una llave...
@@ -43639,7 +43639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.485, y: 0.33577532}
-  m_AnchoredPosition: {x: 173, y: 35.13404}
+  m_AnchoredPosition: {x: 173, y: 35.134033}
   m_SizeDelta: {x: -262.0865, y: -70.26984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606665845

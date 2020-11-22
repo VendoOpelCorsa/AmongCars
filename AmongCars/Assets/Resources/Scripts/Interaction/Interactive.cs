@@ -6,14 +6,10 @@ public abstract class Interactive : MonoBehaviour
 
     public abstract void OnInteract();
 
-    protected virtual void OnExit() { }
-
     protected void Update()
     {
         if (isLooked)
             OnInteract();
-        /*else
-            OnExit();*/
     }
 
     public void setIsLooked(bool looked)
