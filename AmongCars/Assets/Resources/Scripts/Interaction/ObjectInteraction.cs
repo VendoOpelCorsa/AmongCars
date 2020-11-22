@@ -26,17 +26,17 @@ public class ObjectInteraction : Interactive
         print(text);
 
         dialoguePanel.SetActive(true);
-        titleTX.text = title;
+        //titleTX.text = title;
 
-        displayTX.text = text;
+        //displayTX.text = text;
     }
 
     void Start()
     {
         dialoguePanel = GameObject.FindWithTag("dialoguePanel");
 
-        titleTX = GameObject.FindWithTag("title").GetComponent<TMP_Text>();
-        displayTX = GameObject.FindWithTag("displayText").GetComponent<TMP_Text>();
+        //titleTX = GameObject.FindWithTag("title").GetComponent<TMP_Text>();
+        //displayTX = GameObject.FindWithTag("displayText").GetComponent<TMP_Text>();
     }
 
     void Update()

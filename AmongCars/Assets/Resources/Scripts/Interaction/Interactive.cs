@@ -25,7 +25,7 @@ public abstract class Interactive : MonoBehaviour
 
     private bool blocked = false;
     private bool isLooked = false;
-    public float timerDuration = 2f;
+    public float timerDuration = 1.25f;
     private float lookTimer = 0f;
 
     void Update()
