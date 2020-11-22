@@ -26,21 +26,25 @@ public class ObjectInteraction : Interactive
         print(text);
 
         dialoguePanel.SetActive(true);
-        //titleTX.text = title;
+        titleTX.text = title;
 
-        //displayTX.text = text;
+        displayTX.text = text;
     }
 
     void Start()
     {
-        dialoguePanel = GameObject.FindWithTag("dialoguePanel");
+        dialoguePanel = GameObject.Find("DialoguePanel");
 
-        //titleTX = GameObject.FindWithTag("title").GetComponent<TMP_Text>();
-        //displayTX = GameObject.FindWithTag("displayText").GetComponent<TMP_Text>();
+        titleTX = GameObject.Find("NPC Name").GetComponent<TMP_Text>();
+        displayTX = GameObject.Find("DisplayText").GetComponent<TMP_Text>();
+
+        dialoguePanel.SetActive(false);
     }
 
     void Update()
     {
+        base.Update();
+
         if (open)
             if (controls.Player.Salir.ReadValue<float>() == 1)
             {

@@ -28,7 +28,7 @@ public abstract class Interactive : MonoBehaviour
     public float timerDuration = 1.25f;
     private float lookTimer = 0f;
 
-    void Update()
+    protected void Update()
     {
         if (isLooked)
         {
@@ -45,6 +45,7 @@ public abstract class Interactive : MonoBehaviour
             lookTimer = 0f;
         }
     }
+
     public void setIsLooked(bool looked)
     {
         if (blocked)

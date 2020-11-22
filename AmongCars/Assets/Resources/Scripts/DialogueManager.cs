@@ -102,7 +102,8 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        ShowOptions();
+        if (npc.GetOptions().Length > 0)
+            ShowOptions();
     }
 
     void OnTriggerStay(Collider other)
