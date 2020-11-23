@@ -68,6 +68,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Toggle FlashLight",
+                    "type": "Value",
+                    "id": "d0c2e4a9-fce5-4bbf-83b1-b8c224bf3cb7",
+                    "expectedControlType": "Integer",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -354,6 +362,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Salir",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c29c803a-ceb6-457a-9b44-a04c0bbca3a6",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle FlashLight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "53dcb1c7-90ab-47ba-8959-016d0c8cca83",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Toggle FlashLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
