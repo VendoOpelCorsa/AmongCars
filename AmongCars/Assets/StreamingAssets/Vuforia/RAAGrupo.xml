@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="jacinto1" size="1.000000 1.902552" />
+    <ImageTarget name="turquesa" size="1.000000 1.000000" />
+    <ImageTarget name="verdeMuerto" size="1.000000 1.727823" />
+    <ImageTarget name="naranja" size="1.000000 1.000000" />
+    <ImageTarget name="jacinto" size="1.000000 0.750000" />
+  </Tracking>
+</QCARConfig>
