@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 4.5f;
 
     private float g = 9.81f;
+    
+    private Light flashlight;
+    private Light fComponent;
 
     private CharacterController cntrl;
 
@@ -18,11 +21,14 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         cntrl = GetComponent<CharacterController>();
+        flashlight = GetComponentInChildren<Light>();
+        fComponent = flashlight.GetComponent<Light>();
     }
-
     protected void Awake() => controls = new AmongCars();
     protected void OnEnable() => controls.Enable();
     protected void OnDisable() => controls.Disable();
+
+    public bool on = false;
 
     void Update()
     {
@@ -38,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
         bool sprint = controls.Player.Sprint.ReadValue<float>() == 1;
         bool jump = controls.Player.Jump.ReadValue<float>() == 1;
+
+        bool flashLight = controls.Player.ToggleFlashLight.ReadValue<float>() == 1;
 
         var c = VREmulator.GetRotation();
         Vector3 dir = c * Vector3.right * x + c * Vector3.forward * z;
@@ -55,6 +63,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (jump && grounded)
             directionY = jumpSpeed;
+        
+        if (flashLight){
+             if(on){
+                fComponent.enabled = true;
+                on = !on;
+             }
+            else if(!on){
+                fComponent.enabled = false;
+                on = !on;
+            }
+        }
 
         if (!grounded)
             directionY -= g * 1.4f * Time.deltaTime;
