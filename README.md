@@ -22,6 +22,7 @@ In the wiki section of this repo, you can find a detailed description of the gam
 
 * <a href="https://unity.com/es">Unity</a>
 * <a href="https://arvr.google.com">Google VR</a> 
+* <a href="https://developer.vuforia.com">Vuforia Augmented Reality SDK</a>
 * Android SDK
 * A lot of online tutorials and free time. 
 
