@@ -10,15 +10,6 @@
       },
       "hash": "f9d253a54b52efa99e2bd45e854f95246e32be23"
     },
-    "com.ptc.vuforia.engine": {
-      "version": "8.1.12",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
       "depth": 0,
