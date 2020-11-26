@@ -14,14 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Morado
   icon: icon_morado
-  sentences:
+  sentences1:
   - 'Bua chaval, menuda liada eh '
   - "Es que no va el t\xEDo y me roba MI destornillador. Hab\xE9rmelo pedido. Fue
-    por hacerse el chulito delante de Rosita."
-  - "Algo o\xED s\xED, pero yo pensaba que ella estaba con A\xF1il."
+    por hacerse el chulito delante de Rosita "
+  - "Algo o\xED s\xED, pero yo pensaba que ella estaba con A\xF1il. "
   - "Pues mal, ahora encima somos uno menos. No s\xE9 si lo tendremos todo listo
-    para ma\xF1ana."
+    para ma\xF1ana "
+  sentences2:
+  - "El jefe se ha marchado a toda prisa despu\xE9s de hablar con Verde... creo que
+    algo pas\xF3 en el despacho. Por cierto, cuidado con los tornillos de ah\xED. "
+  - "Al aparcamiento, me pareci\xF3 ver que se le ca\xEDa algo. "
+  - 'Vete con cuidado, no vayas a pisarlos. '
+  - "No fui yo, la que rompe todo \xFAltimamente es Rosa, que est\xE1 super patosa\u2026  "
   playerResponses:
-  - "\xBFA ti no te ca\xEDa muy bien verdad?"
+  - "\xBFA ti no te ca\xEDa muy bien verdad? "
   - "Se comenta que sal\xEDa con Rosita\u2026"
   - "\xBFC\xF3mo vas con los amortiguadores?"
+  - "\xBFA d\xF3nde fue? "
+  - "\xBFTornillos?  "
+  - "\xBFQu\xE9 rompiste? "

@@ -14,12 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "A\xF1il"
   icon: icon_anyil
-  sentences:
-  - "\u2026\u2026\u2026\u2026\u2026\u2026 "
-  - "Estaba mal por lo de Rosa, pero ahora las cosas han cambiado\u2026"
-  - "Ser\xE1 mejor que vaya con ella "
-  - "\u2026\u2026\u2026\u2026"
+  sentences1:
+  - ...................
+  - "Estaba mal por lo de Rosa, pero ahora las cosas han cambiado\u2026 "
+  - "Ser\xE1 mejor que vaya con ella"
+  - ya eh .....
+  sentences2:
+  - . . .
+  - "S\xED\u2026 pero no me quiere ni ver. Todo por culpa del Verde este, si no hubieran
+    discutido me seguir\xEDa hablando..."
+  - "\xBF\xBFPor qu\xE9 hoy todo el mundo me dice lo que tengo que hacer?? Antes
+    de esto todos me dejabais en paz. "
+  - ...................
   playerResponses:
   - "A\xF1il, \xBFqu\xE9 tal est\xE1s? "
   - "Rosa est\xE1 muy afectada "
   - 'No puedo creer lo de Verde '
+  - "\xBFFuiste a ver a Rosa? "
+  - "Igual deber\xEDas trabajar\u2026 "
+  - ...................

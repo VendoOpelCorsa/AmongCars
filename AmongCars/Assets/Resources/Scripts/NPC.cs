@@ -10,19 +10,36 @@ public class NPC : ScriptableObject
     public string icon;
 
     [TextArea(3, 15)]
-    public string[] sentences;
+    public string[] sentences1;
+
+     [TextArea(3, 15)]
+    public string[] sentences2;
     
      [TextArea(3, 15)]
     public string[] playerResponses;
 
+    int round = 1;
+
     public string[] GetSentences()
     {   
-        return sentences;
+        if(round == 1) {
+              return sentences1;
+        }
+        else {
+               return sentences2;
+        }
+      
     }
 
     public string GetSentence(int index)
     {
-        return sentences[index];
+        if(round == 1) {
+            return sentences1[index];
+        }
+        else {
+             return sentences2[index];
+        }
+        
     }
 
     public string[] GetOptions()
@@ -33,6 +50,26 @@ public class NPC : ScriptableObject
     public string GetResponse(int index)
     {
         return playerResponses[index];
+    }
+
+     public int GetRound()
+    {
+        return round;
+    }
+
+    public void SetRound(int n)
+    {
+        round = n;
+    }
+
+    public void ChangeRound()
+    {
+        if(round == 1) {
+            round++;
+        }
+        else {
+            round--;
+        }
     }
 
 }

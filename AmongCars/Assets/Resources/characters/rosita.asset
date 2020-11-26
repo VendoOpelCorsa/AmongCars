@@ -14,8 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Rosita
   icon: icon_rosita
-  sentences:
+  sentences1:
   - "Ay Jaci, qu\xE9 horror. No me creo lo que ha pasado con Verde. Encima con la
     semana que llevaba, que Naranja no lo dejaba en paz, todo el d\xEDa grit\xE1ndole,
-    pobrecillo. "
-  playerResponses: []
+    pobrecillo."
+  - "T\xFA que sabes. Hay un asesino suelto, UN ASESINO"
+  - "Mmm s\xED, bueno era un buen compa\xF1ero."
+  - Todo el rato, ni respirar le dejaba.
+  sentences2:
+  - "Nunca me ha gustado la decoraci\xF3n de la cafeter\xEDa. Todos esos cuchillos
+    ah\xED clavados\u2026 me parece escalofriante"
+  - "Como si tener cuchillos en la pared fuese normal. Por cierto, \xA1mira quellave
+    inglesa encontr\xE9! \xBFA qu\xE9 es mon\xEDsima?"
+  - "S\xED, bueno no. No era nada serio, adem\xE1s era bastante t\xF3xico y me enfadaba
+    mucho.  "
+  - "El pobre no pasa p\xE1gina, pero la vida sigue y hay que adaptarse."
+  playerResponses:
+  - Traquila, todo va a estar bien
+  - "\xBFEstabas muy unida a Verde?"
+  - "\xBFDices que Naranja le gritaba?"
+  - "\xBFNo notas algo raro? "
+  - "\xBFT\xFA sal\xEDas con Verde no? "
+  - "A\xF1il se comporta de forma extra\xF1a "

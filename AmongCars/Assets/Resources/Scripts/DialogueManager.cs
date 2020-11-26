@@ -22,8 +22,6 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject optionsPanel;
 
-    public int curResponseTracker = 0;
-
     public Button button1;
     public Button button2;
     public Button button3;
@@ -38,7 +36,6 @@ public class DialogueManager : MonoBehaviour
     public float typingSpeed;
 
     AudioSource myAudio;
-    public AudioClip speakSound;
 
     void Start()
     {
@@ -54,7 +51,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //print("Prueba");
             player = other.gameObject;
             ObjectInteraction.ShowIcon(true);
             ObjectInteraction.ShowDialog(true);
@@ -62,19 +58,31 @@ public class DialogueManager : MonoBehaviour
             string url = "Sprites/" + npc.icon;
             npcImage.sprite = Resources.Load<Sprite>(url);
             StartDialogue();
-
         }
     }
 
     void StartDialogue()
     {
+        print("Enter: " + npc.GetRound());
         sentences.Clear();
-        foreach (string sentence in npc.sentences)
+        if(npc.GetRound() == 1)
         {
-            sentences.Enqueue(sentence);
+            foreach (string sentence in npc.sentences1)
+            {
+                sentences.Enqueue(sentence);
+            } 
+            DisplayNextSentence();
         }
-
-        DisplayNextSentence();
+        else if(npc.GetRound() == 2)
+        {
+            print("entro ronda 2");
+            foreach (string sentence in npc.sentences2)
+            {
+                sentences.Enqueue(sentence);
+            } 
+            DisplayNextSentence();
+        } 
+        
     }
 
     public void DisplayNextSentence()
@@ -86,7 +94,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         activeSentence = sentences.Dequeue();
-        displayText.text = activeSentence;
+        //displayText.text = activeSentence;
 
         StopAllCoroutines();
         StartCoroutine(TypeTheSentence(activeSentence));
@@ -95,17 +103,15 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeTheSentence(string sentence)
     {
         displayText.text = "";
-
+        myAudio.Play();
         foreach (char letter in sentence.ToCharArray())
         {
             ObjectInteraction.ShowDialog(true);
             displayText.text += letter;
-            //myAudio.PlayOneShot(speakSound);
             yield return new WaitForSeconds(typingSpeed);
         }
-
-        if (npc.GetOptions().Length > 0)
-            ShowOptions();
+        myAudio.Stop();
+        ShowOptions();
     }
 
     void OnTriggerStay(Collider other)
@@ -119,16 +125,11 @@ public class DialogueManager : MonoBehaviour
             if (controls.Player.Option2.ReadValue<float>() == 1)
             {
                 ChooseOption(2);
-                //button2.AddListener(()=>ChooseOption(2));
             }
             if (controls.Player.Option3.ReadValue<float>() == 1)
             {
                 ChooseOption(3);
-                //button3.AddListener(()=>ChooseOption(3));
             }
-            //button1.onClick.AddListener(() => ChooseOption(1));
-            //button2.onClick.AddListener(() => ChooseOption(2));
-            //button3.onClick.AddListener(() => ChooseOption(3));
 
             if (optionsPanel.activeInHierarchy == false)
             {
@@ -147,7 +148,15 @@ public class DialogueManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            myAudio.Stop();
             ClosePanel();
+            if(npc.GetRound() == 1) {
+                npc.SetRound(2);
+            }
+            else if(npc.GetRound() == 2) {
+                npc.SetRound(1);
+            }
+            print("Exit de " + npc.name + ": " + npc.GetRound());
             StopAllCoroutines();
         }
     }
@@ -156,9 +165,16 @@ public class DialogueManager : MonoBehaviour
     {
         optionsPanel.SetActive(true);
         string[] options = npc.GetOptions();
-        op1.text = options[0];
-        op2.text = options[1];
-        op3.text = options[2];
+         if(npc.GetRound() == 1) {
+            op1.text = options[0];
+            op2.text = options[1];
+            op3.text = options[2];
+        }
+        else {
+            op1.text = options[3];
+            op2.text = options[4];
+            op3.text = options[5];
+        }
     }
 
     private void ChooseOption(int button)
@@ -179,7 +195,6 @@ public class DialogueManager : MonoBehaviour
 
     private void NextSentence(int curResponseTracker)
     {
-
         displayText.text = npc.GetSentence(curResponseTracker);
         optionsPanel.SetActive(false);
     }
@@ -187,8 +202,9 @@ public class DialogueManager : MonoBehaviour
     private void ClosePanel()
     {
         ObjectInteraction.ShowDialog(false);
-        optionsPanel.SetActive(false);
+        optionsPanel.SetActive(false); 
     }
+
 }
 
 

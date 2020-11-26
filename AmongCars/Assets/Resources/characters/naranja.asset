@@ -14,14 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Naranja
   icon: icon_naranja
-  sentences:
+  sentences1:
   - "\xBFYa te han contado que discut\xED con Verde no? Era de esperar. Pero como
-    no le voy a re\xF1ir, si es un in\xFAtil. Bueno, era\u2026"
-  - 'No voy a acusar a nadie, pero se llevaba mal con Morado '
+    no le voy a re\xF1ir, si es un in\xFAtil. Bueno, era\u2026 "
+  - "No voy a acusar a nadie, pero se llevaba mal con Morado \t"
   - "Creo que est\xE1 en su despacho. Acabo de acordarme que ayer vi a Verde saliendo
-    del despacho del jefe."
-  - Cuanto antes lo asumamos, mejor.
+    del despacho del jefe "
+  - 'Cuanto antes lo asumamos, mejor '
+  sentences2:
+  - 'Jacinto, mucho paseo y poco trabajo '
+  - 'Puedo sola. Aunque no encuentro mi llave inglesa. '
+  - "ES QUE AQU\xCD NADIE AYUDA. TODOS LLORANDO. Aunque Rosa est\xE1 como una...
+    rosa.  "
+  - "A este ritmo\u2026 Morado lleva horas para un cableado, no s\xE9 porque tarda
+    tanto "
   playerResponses:
   - "\xBFQui\xE9n crees que ha sido? "
   - "\xBFViste a Turquesa? "
   - "Que bestia t\xEDa\u2026 "
+  - "\xBFTe ayudo? "
+  - 'Te veo estresada '
+  - "\xBFLo tendremos todo listo para ma\xF1ana"
