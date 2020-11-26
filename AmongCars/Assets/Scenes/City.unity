@@ -12278,7 +12278,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367909477}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 69b2b23c16349ef489736cb9c4abafa3, type: 3}
@@ -38956,6 +38956,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: verde
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 00078d79400b92e448b1fdc85be886cc,
+        type: 3}
+      propertyPath: m_TagString
+      value: objetos
+      objectReference: {fileID: 0}
     - target: {fileID: 7706110884207132511, guid: 00078d79400b92e448b1fdc85be886cc,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -38976,25 +38981,42 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157792340}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de0de37bf9b084979902d7cf690f4637, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 11400000, guid: 374b33a295493436e9a349de27d353eb, type: 2}
-  npcName: {fileID: 1281142699}
-  npcImage: {fileID: 1062027153}
-  player: {fileID: 1827004681}
-  displayText: {fileID: 56668725}
-  optionsPanel: {fileID: 1581345443}
-  button1: {fileID: 970041788}
-  button2: {fileID: 661091866}
-  button3: {fileID: 504083072}
-  btOut: {fileID: 0}
-  op1: {fileID: 614652330}
-  op2: {fileID: 1625765687}
-  op3: {fileID: 813714578}
-  typingSpeed: 0.05
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1157792344}
+          m_MethodName: setIsLooked
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1157792344}
+          m_MethodName: setIsLooked
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!135 &1157792342
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -39003,27 +39025,25 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157792340}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6.427045
-  m_Center: {x: 1.213527, y: 1.7652365, z: -0.20755409}
---- !u!54 &1157792343
-Rigidbody:
+  m_Radius: 5.7297297
+  m_Center: {x: 1.2135274, y: 2.693531, z: -0.2075541}
+--- !u!114 &1157792344
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157792340}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40c537e0ab3cc148885acf96eaa0b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: Uy perdona...
+  title: Verde
 --- !u!1001 &1165072099
 PrefabInstance:
   m_ObjectHideFlags: 0
