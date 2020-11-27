@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float directionY;
 
+    private float moved;
+
     void Start()
     {
         cntrl = GetComponent<CharacterController>();
@@ -84,7 +86,22 @@ public class PlayerMovement : MonoBehaviour
         dir.y = directionY;
 
         cntrl.Move(dir * Time.deltaTime);
+
+        moved += new Vector2(dir.x,dir.z).magnitude * Time.deltaTime;
+
+        if (moved > 2.5f) {
+            moved = 0;
+            PlaySound();
+        }
     }
 
     bool IsOnGround() => cntrl.isGrounded;
+
+    private void PlaySound() {
+        GameObject paso = GameObject.FindWithTag("Paso");
+        AudioSource audio = paso.GetComponent<AudioSource>();
+        if (!audio.isPlaying) {
+            audio.Play();
+        }
+    }
 }
