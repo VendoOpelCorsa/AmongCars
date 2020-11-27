@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,39 +14,27 @@ public class NPC : ScriptableObject
     [TextArea(3, 15)]
     public string[] sentences1;
 
-     [TextArea(3, 15)]
+    [TextArea(3, 15)]
     public string[] sentences2;
-    
-     [TextArea(3, 15)]
+
+    [TextArea(3, 15)]
     public string[] playerResponses;
 
-    int round = 1;
+    private int round = 1;
 
     public string[] GetSentences()
-    {   
-        if(round == 1) {
-              return sentences1;
-        }
-        else {
-               return sentences2;
-        }
-      
+    {
+        return round == 1 ? sentences1 : sentences2;
     }
 
     public string GetSentence(int index)
     {
-        if(round == 1) {
-            return sentences1[index];
-        }
-        else {
-             return sentences2[index];
-        }
-        
+        return GetSentences()[index];
     }
 
     public string[] GetOptions()
     {
-        return playerResponses;
+        return playerResponses.Skip((round - 1) * 3).Take(3).ToArray();
     }
 
     public string GetResponse(int index)
@@ -52,24 +42,10 @@ public class NPC : ScriptableObject
         return playerResponses[index];
     }
 
-     public int GetRound()
-    {
-        return round;
-    }
-
-    public void SetRound(int n)
-    {
-        round = n;
-    }
+    public int GetRound() => round;
 
     public void ChangeRound()
     {
-        if(round == 1) {
-            round++;
-        }
-        else {
-            round--;
-        }
+        round = round == 1 ? 2 : 1;
     }
-
 }
