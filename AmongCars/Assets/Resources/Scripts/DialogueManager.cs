@@ -18,7 +18,6 @@ public class DialogueManager : MonoBehaviour
 
     Queue<string> sentences;
 
-    //public GameObject dialoguePanel;
     public TMP_Text displayText;
 
     public GameObject optionsPanel;
@@ -55,8 +54,6 @@ public class DialogueManager : MonoBehaviour
         if (!chatting && other.CompareTag("Player"))
         {
             chatting = true;
-            print("Enter: " + npc.GetRound());
-
             player = other.gameObject;
             ObjectInteraction.ShowIcon(true);
             ObjectInteraction.ShowDialog(true);
@@ -86,7 +83,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         activeSentence = sentences.Dequeue();
-        //displayText.text = activeSentence;
 
         StopAllCoroutines();
         StartCoroutine(TypeTheSentence(activeSentence));
@@ -142,11 +138,7 @@ public class DialogueManager : MonoBehaviour
         {
             myAudio.Stop();
             ClosePanel();
-
-            print("Exit de " + npc.name + ": " + npc.GetRound());
-
             npc.ChangeRound();
-
             chatting = false;
             StopAllCoroutines();
         }
