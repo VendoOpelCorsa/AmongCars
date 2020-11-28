@@ -72,17 +72,12 @@ public class DialogueManager : MonoBehaviour
     void StartDialogue()
     {
         sentences.Clear();
-        //voices.Clear();
+        voices.Clear();
 
         foreach (string sentence in npc.GetSentences())
-
             sentences.Enqueue(sentence);
-        // foreach (AudioClip voice in npc.GetAudios())
-        //     voices.Enqueue(voice);
-
-        // foreach (AudioClip voz in npc.voces){
-        //     audios.Enqueue(voz);
-        // }
+        foreach (AudioClip voice in npc.GetAudios())
+            voices.Enqueue(voice);
 
         DisplayNextSentence();
     }
@@ -92,13 +87,13 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count <= 0)
         {
             displayText.text = activeSentence;
-            //myAudio.clip = speakSound;
+            myAudio.clip = speakSound;
             return;
         }
 
         activeSentence = sentences.Dequeue();
-        // speakSound = voices.Dequeue();
-        // myAudio.clip = speakSound;
+        speakSound = voices.Dequeue();
+        myAudio.clip = speakSound;
 
         StopAllCoroutines();
         StartCoroutine(TypeTheSentence(activeSentence));
@@ -152,7 +147,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (chatting && other.CompareTag("Player"))
         {
-            myAudio.Stop();
             ClosePanel();
             npc.ChangeRound();
             chatting = false;
@@ -191,7 +185,7 @@ public class DialogueManager : MonoBehaviour
     private void NextSentence(int curResponseTracker)
     {
         displayText.text = npc.GetSentence(curResponseTracker);
-        //myAudio.clip = npc.GetAudio(curResponseTracker);
+        myAudio.clip = npc.GetAudio(curResponseTracker);
         myAudio.Play();
 
         optionsPanel.SetActive(false);

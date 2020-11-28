@@ -35,3 +35,13 @@ MonoBehaviour:
   - "\xBFTe ayudo? "
   - 'Te veo estresada '
   - "\xBFLo tendremos todo listo para ma\xF1ana"
+  voices1:
+  - {fileID: 8300000, guid: c7f5dbd9a4cd9cf489d725b78515a8b6, type: 3}
+  - {fileID: 8300000, guid: f353f0c317b0c7447b0cfd7386e387e9, type: 3}
+  - {fileID: 8300000, guid: c9950f461b4d5f449be5f65c549983ce, type: 3}
+  - {fileID: 8300000, guid: 650501ba54163d94798021eddcec4c45, type: 3}
+  voices2:
+  - {fileID: 8300000, guid: 4c329e317cdbeeb4d8ef5ea5fa13fe5b, type: 3}
+  - {fileID: 8300000, guid: 861a3605b27ef3b429aeedfd130bea5b, type: 3}
+  - {fileID: 8300000, guid: 0ee77eda7531e6f4fbbb7836c82c35bc, type: 3}
+  - {fileID: 8300000, guid: 92c03f02a4e58c84898d8d3871ef2ca7, type: 3}

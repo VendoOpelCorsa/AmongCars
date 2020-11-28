@@ -34,3 +34,13 @@ MonoBehaviour:
   - "\xBFA d\xF3nde fue? "
   - "\xBFTornillos?  "
   - "\xBFQu\xE9 rompiste? "
+  voices1:
+  - {fileID: 8300000, guid: 3245d51c564d7a64aab3cb3c5a0c0d32, type: 3}
+  - {fileID: 8300000, guid: d93d3435e9c405748852719da65ae746, type: 3}
+  - {fileID: 8300000, guid: e031a8d09dce282429e526821e541424, type: 3}
+  - {fileID: 8300000, guid: f387013a45b008044924801862e7ab66, type: 3}
+  voices2:
+  - {fileID: 8300000, guid: 75da00a625a75f141a4508fecf6e9485, type: 3}
+  - {fileID: 8300000, guid: 0e554f8c08278ae4085a9bb0d54d73ec, type: 3}
+  - {fileID: 8300000, guid: 7083f3c70de709d4a914ef1d122949e5, type: 3}
+  - {fileID: 8300000, guid: 61268471a4ad7a94184dcc3adf75ba8a, type: 3}

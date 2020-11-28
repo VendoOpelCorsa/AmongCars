@@ -36,4 +36,14 @@ MonoBehaviour:
   - "\xBFNo notas algo raro? "
   - "\xBFT\xFA sal\xEDas con Verde no? "
   - "A\xF1il se comporta de forma extra\xF1a "
-
+  - 
+  voices1:
+  - {fileID: 8300000, guid: 7539f4a63b56af54c9beacfc63adc8fb, type: 3}
+  - {fileID: 8300000, guid: 5cf23a0f91183a041881cbafa9d4e7fd, type: 3}
+  - {fileID: 8300000, guid: 1837974f900eb634fb97c399d53476a0, type: 3}
+  - {fileID: 8300000, guid: 6f900f43e8056444aa72a9a83637f528, type: 3}
+  voices2:
+  - {fileID: 8300000, guid: fe5c603a7632c4641b2c75e0e9a3b30c, type: 3}
+  - {fileID: 8300000, guid: 002cc5636d2dbf94db722619a552c7b3, type: 3}
+  - {fileID: 8300000, guid: 950fc636e3d09fa4c997a594ef776e80, type: 3}
+  - {fileID: 8300000, guid: 8a55142f7577d474794aeb22085c4025, type: 3}

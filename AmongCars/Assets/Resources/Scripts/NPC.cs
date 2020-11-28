@@ -20,9 +20,9 @@ public class NPC : ScriptableObject
     [TextArea(3, 15)]
     public string[] playerResponses;
 
-    // public AudioClip[] voices1;
+    public AudioClip[] voices1;
 
-    // public AudioClip[] voices2;
+    public AudioClip[] voices2;
 
     private int round = 1;
 
@@ -36,20 +36,15 @@ public class NPC : ScriptableObject
         return GetSentences()[index];
     }
 
-    // public AudioClip[] GetAudios()
-    // {
-    //     return round == 1 ? voices1 : voices2;
-    // }
+    public AudioClip[] GetAudios()
+    {
+        return round == 1 ? voices1 : voices2;
+    }
 
-    // public AudioClip GetAudio(int index)
-    // {
-    //     return GetAudios()[index];
-    // }
-
-    // public AudioClip GetAudio(int index) 
-    // {
-    //     return voces[index];
-    // }
+    public AudioClip GetAudio(int index)
+    {
+        return GetAudios()[index];
+    }
 
     public string[] GetOptions()
     {

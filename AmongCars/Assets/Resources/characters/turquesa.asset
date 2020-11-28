@@ -38,3 +38,13 @@ MonoBehaviour:
   - "Tampoco la veo tan mal\u2026 "
   - "En cuanto a A\xF1il\u2026 "
   - "\xBFNecesitas algo? "
+  voices1:
+  - {fileID: 8300000, guid: 62f2703b4f786ab438abddcf535eccf3, type: 3}
+  - {fileID: 8300000, guid: ac0e4f79194a8214f98b47d9410c492e, type: 3}
+  - {fileID: 8300000, guid: dd52d86c51a57df49afb2d22076594d1, type: 3}
+  - {fileID: 8300000, guid: dd67bfc3a2b6a9742bafec09d0f654ac, type: 3}
+  voices2:
+  - {fileID: 8300000, guid: cdf7af35ad865b948bf7f656ed016bab, type: 3}
+  - {fileID: 8300000, guid: ca1fd8310e2ca3f4782dbe993832959e, type: 3}
+  - {fileID: 8300000, guid: 6a153ec4941996b468a0a43a781745bf, type: 3}
+  - {fileID: 8300000, guid: ea831ac4b0a44954aa6e50c50663d13c, type: 3}
