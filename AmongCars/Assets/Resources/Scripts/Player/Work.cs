@@ -24,6 +24,7 @@ public class Work : MonoBehaviour
         tasks = new List<string>();
         tasks.Add("Vete fuera donde los contenedores a sincronizar los generadores");
         tasks.Add("Vaya... tienes suerte. No hay nada que hacer... de momento");
+        tasks.Add("Acuérdate... Siempre puedes llamar a la policía para resolver el caso");
         tasks.Add("Es bromi");
         panel.SetActive(false);
         StartCoroutine(TimeToWork());

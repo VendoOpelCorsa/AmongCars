@@ -12,6 +12,7 @@ public class KeyInteraction : ObjectInteraction
 
         Found = true;
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        gameObject.transform.localScale = new Vector3( 0, 0, 0);
     }
 }

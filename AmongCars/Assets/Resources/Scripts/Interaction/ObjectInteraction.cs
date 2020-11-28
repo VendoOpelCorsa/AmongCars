@@ -9,12 +9,12 @@ public class ObjectInteraction : Interactive
     private static TMP_Text displayTX;
     private static GameObject dialoguePanel, icon;
 
-    private AmongCars controls;
+    protected AmongCars controls;
 
     public string text;
     public string title;
 
-    private bool open;
+    protected bool open;
 
     protected void Awake() => controls = new AmongCars();
     protected void OnEnable() => controls?.Enable();

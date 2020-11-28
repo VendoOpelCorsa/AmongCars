@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorInteraction : ObjectInteraction
+public class DoorInteraction : MonoBehaviour
 {
     public KeyInteraction key;
-   public override void OnInteract()
-    {
-        base.OnInteract();
+    public GameObject puerta;
 
-        if(key.Found){
-            gameObject.SetActive(false);
-        }
+    void OnTriggerEnter(){
         
+        if(key.Found){
+            print("ta bien");
+            puerta.SetActive(false);
+        }
     }
+    
 }
