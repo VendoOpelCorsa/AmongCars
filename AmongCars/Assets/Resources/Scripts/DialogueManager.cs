@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Runtime.CompilerServices;
+using System;
+using System.Linq;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,14 +19,11 @@ public class DialogueManager : MonoBehaviour
 
     Queue<string> sentences;
 
-    Queue<AudioClip> audios;
+    Queue<AudioClip> voices;
 
-    //public GameObject dialoguePanel;
     public TMP_Text displayText;
 
     public GameObject optionsPanel;
-
-    public int curResponseTracker = 0;
 
     public Button button1;
     public Button button2;
@@ -40,12 +39,14 @@ public class DialogueManager : MonoBehaviour
     public float typingSpeed;
 
     AudioSource myAudio;
-    public AudioClip speakSound; //Crear de la misma manera que las frases, una cola de audios
+    AudioClip speakSound;
+
+    bool chatting;
 
     void Start()
     {
         sentences = new Queue<string>();
-        audios = new Queue<AudioClip>();
+        voices = new Queue<AudioClip>();
         myAudio = GetComponent<AudioSource>();
     }
 
@@ -55,9 +56,9 @@ public class DialogueManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!chatting && other.CompareTag("Player"))
         {
-            //print("Prueba");
+            chatting = true;
             player = other.gameObject;
             ObjectInteraction.ShowIcon(true);
             ObjectInteraction.ShowDialog(true);
@@ -65,18 +66,19 @@ public class DialogueManager : MonoBehaviour
             string url = "Sprites/" + npc.icon;
             npcImage.sprite = Resources.Load<Sprite>(url);
             StartDialogue();
-
         }
     }
 
     void StartDialogue()
     {
         sentences.Clear();
-        audios.Clear();
-        foreach (string sentence in npc.sentences)
-        {
+        voices.Clear();
+
+        foreach (string sentence in npc.GetSentences())
+
             sentences.Enqueue(sentence);
-        }
+        foreach (AudioClip voice in npc.GetAudios())
+            voices.Enqueue(voice);
 
         foreach (AudioClip voz in npc.voces){
             audios.Enqueue(voz);
@@ -95,8 +97,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         activeSentence = sentences.Dequeue();
-        displayText.text = activeSentence;
-        speakSound = audios.Dequeue();
+        speakSound = voices.Dequeue();
         myAudio.clip = speakSound;
 
         StopAllCoroutines();
@@ -106,23 +107,20 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeTheSentence(string sentence)
     {
         displayText.text = "";
-        
         myAudio.Play();
         foreach (char letter in sentence.ToCharArray())
         {
             ObjectInteraction.ShowDialog(true);
             displayText.text += letter;
-            //myAudio.PlayOneShot(speakSound);
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        if (npc.GetOptions().Length > 0)
-            ShowOptions();
+        ShowOptions();
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (chatting && other.CompareTag("Player"))
         {
             if (controls.Player.Option1.ReadValue<float>() == 1)
             {
@@ -131,16 +129,11 @@ public class DialogueManager : MonoBehaviour
             if (controls.Player.Option2.ReadValue<float>() == 1)
             {
                 ChooseOption(2);
-                //button2.AddListener(()=>ChooseOption(2));
             }
             if (controls.Player.Option3.ReadValue<float>() == 1)
             {
                 ChooseOption(3);
-                //button3.AddListener(()=>ChooseOption(3));
             }
-            //button1.onClick.AddListener(() => ChooseOption(1));
-            //button2.onClick.AddListener(() => ChooseOption(2));
-            //button3.onClick.AddListener(() => ChooseOption(3));
 
             if (optionsPanel.activeInHierarchy == false)
             {
@@ -157,9 +150,12 @@ public class DialogueManager : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (chatting && other.CompareTag("Player"))
         {
+            myAudio.Stop();
             ClosePanel();
+            npc.ChangeRound();
+            chatting = false;
             StopAllCoroutines();
             myAudio.Stop();
         }
@@ -168,7 +164,9 @@ public class DialogueManager : MonoBehaviour
     public void ShowOptions()
     {
         optionsPanel.SetActive(true);
+
         string[] options = npc.GetOptions();
+
         op1.text = options[0];
         op2.text = options[1];
         op3.text = options[2];
@@ -192,7 +190,6 @@ public class DialogueManager : MonoBehaviour
 
     private void NextSentence(int curResponseTracker)
     {
-
         displayText.text = npc.GetSentence(curResponseTracker);
         myAudio.clip = npc.GetAudio(curResponseTracker);
         myAudio.Play();

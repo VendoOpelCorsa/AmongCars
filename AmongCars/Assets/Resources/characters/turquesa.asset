@@ -14,16 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Turquesa
   icon: icon_turquesa
-  sentences:
+  sentences1:
   - "Hola Jacinto, \xBFc\xF3mo est\xE1s? Yo fatal. Hoy por la ma\xF1ana estaba criticando
-    a Verde porque no vino a ayudarme con los preparativos y era porque... no puedo
-    ni decirlo en voz alta. "
-  - "C\xF3mo alguien puede ser capaz de hacer semejante atrocidad..."
+    a Verde porque no vino a ayudarme con los preparativos y era porque\u2026 no
+    puedo ni decirlo en voz alta."
+  - "C\xF3mo alguien puede ser capaz de hacer semejante atrocidad\u2026 "
   - "S\xED, no te preocupes. Vuelve al trabajo si no quieres tener a Naranja todo
-    el d\xEDa encima tuya. No hay quien la aguante estos d\xEDas. "
-  - "Est\xE1 en la cafeter\xEDa pero no s\xE9, desde lo de Rosa est\xE1 raro, no
+    el d\xEDa encima de ti. No hay quien la aguante estos d\xEDas."
+  - "Est\xE1 en la cafeter\xEDa. Pero no s\xE9, desde lo de Rosa est\xE1 raro. No
     habla con nadie. "
+  sentences2:
+  - "Ah, eres t\xFA. Pens\xE9 que ser\xEDa Rosita. Me dijo que quer\xEDa comentar
+    unos detalles de ma\xF1ana. Con todo lo que est\xE1 pasando y sigue trabajando.
+    Qu\xE9 fuerte es. "
+  - Disimula muy bien, pero antes creo que la vi llorando
+  - "\xBFConseguiste hablar con \xE9l? No habla con nadie, s\xF3lo con Morado. Est\xE1
+    hecho polvo, Rosa no tiene coraz\xF3n.  "
+  - 'Hombre, si me acercas una fregona...  '
   playerResponses:
   - Nadie se esperaba esto
   - Mejor te dejo tranquilo
   - "Oye, \xBFHas visto a A\xF1il?"
+  - "Tampoco la veo tan mal\u2026 "
+  - "En cuanto a A\xF1il\u2026 "
+  - "\xBFNecesitas algo? "

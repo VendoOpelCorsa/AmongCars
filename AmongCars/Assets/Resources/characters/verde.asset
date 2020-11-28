@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Verde
   icon: 
-  sentences: []
-  playerResponses:
-  - "Madre m\xEDa qu\xE9 movida"
+  sentences1: []
+  sentences2: []
+  playerResponses: []
