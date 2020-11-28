@@ -2065,13 +2065,12 @@ RectTransform:
   m_LocalScale: {x: 0.96413326, y: 0.992316, z: 1}
   m_Children:
   - {fileID: 401490671}
-  - {fileID: 895242760}
   m_Father: {fileID: 940623184}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16.8, y: 38.4}
+  m_AnchoredPosition: {x: -16.800003, y: 38.4}
   m_SizeDelta: {x: -169.83806, y: -35.494392}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &50554561
@@ -9778,7 +9777,6 @@ GameObject:
   - component: {fileID: 295929624}
   - component: {fileID: 295929623}
   - component: {fileID: 295929622}
-  - component: {fileID: 295929625}
   m_Layer: 5
   m_Name: Amarillo
   m_TagString: Untagged
@@ -9885,19 +9883,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295929620}
   m_CullTransparentMesh: 0
---- !u!114 &295929625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295929620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 503a04d5ab695429f979efdd04901fa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 1
 --- !u!1001 &299214956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22841,6 +22826,9 @@ MonoBehaviour:
   simonSequence: 
   userSequence: 
   animatingSequence: 0
+  botonRojo: {fileID: 1682716524}
+  botonAmarillo: {fileID: 295929622}
+  botonVerde: {fileID: 1719633301}
 --- !u!1 &649054980
 GameObject:
   m_ObjectHideFlags: 0
@@ -31369,7 +31357,7 @@ Transform:
   - {fileID: 229229388}
   - {fileID: 644495480}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &898194639
 PrefabInstance:
@@ -32145,7 +32133,7 @@ RectTransform:
   m_Children:
   - {fileID: 940623184}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -32876,7 +32864,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.485, y: 0.38427922}
-  m_AnchoredPosition: {x: 241.69998, y: 83}
+  m_AnchoredPosition: {x: 241.69998, y: 83.000015}
   m_SizeDelta: {x: -256.39282, y: -73.87386}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &940623185
@@ -56929,7 +56917,6 @@ GameObject:
   - component: {fileID: 1682716526}
   - component: {fileID: 1682716525}
   - component: {fileID: 1682716524}
-  - component: {fileID: 1682716527}
   m_Layer: 5
   m_Name: Rojo
   m_TagString: Untagged
@@ -57036,19 +57023,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682716522}
   m_CullTransparentMesh: 0
---- !u!114 &1682716527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682716522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 503a04d5ab695429f979efdd04901fa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 0
 --- !u!1001 &1683909290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58085,7 +58059,6 @@ GameObject:
   - component: {fileID: 1719633303}
   - component: {fileID: 1719633302}
   - component: {fileID: 1719633301}
-  - component: {fileID: 1719633304}
   m_Layer: 5
   m_Name: Verde
   m_TagString: Untagged
@@ -58192,19 +58165,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719633299}
   m_CullTransparentMesh: 0
---- !u!114 &1719633304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719633299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 503a04d5ab695429f979efdd04901fa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 2
 --- !u!1001 &1720327137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63668,6 +63628,9 @@ MonoBehaviour:
   simonSequence: 
   userSequence: 
   animatingSequence: 0
+  botonRojo: {fileID: 0}
+  botonAmarillo: {fileID: 0}
+  botonVerde: {fileID: 0}
 --- !u!4 &1925442399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011609285218, guid: c2028b62d7877e04194d5001429cff6b,
