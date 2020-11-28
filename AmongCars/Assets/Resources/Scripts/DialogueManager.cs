@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Runtime.CompilerServices;
 using System;
+using System.Linq;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject player;
 
     Queue<string> sentences;
+
+    Queue<AudioClip> voices;
 
     public TMP_Text displayText;
 
@@ -36,12 +39,14 @@ public class DialogueManager : MonoBehaviour
     public float typingSpeed;
 
     AudioSource myAudio;
+    AudioClip speakSound;
 
     bool chatting;
 
     void Start()
     {
         sentences = new Queue<string>();
+        voices = new Queue<AudioClip>();
         myAudio = GetComponent<AudioSource>();
     }
 
@@ -67,9 +72,12 @@ public class DialogueManager : MonoBehaviour
     void StartDialogue()
     {
         sentences.Clear();
+        voices.Clear();
 
         foreach (string sentence in npc.GetSentences())
             sentences.Enqueue(sentence);
+        foreach (AudioClip voice in npc.GetAudios())
+            voices.Enqueue(voice);
 
         DisplayNextSentence();
     }
@@ -79,10 +87,13 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count <= 0)
         {
             displayText.text = activeSentence;
+            myAudio.clip = speakSound;
             return;
         }
 
         activeSentence = sentences.Dequeue();
+        speakSound = voices.Dequeue();
+        myAudio.clip = speakSound;
 
         StopAllCoroutines();
         StartCoroutine(TypeTheSentence(activeSentence));
@@ -98,7 +109,7 @@ public class DialogueManager : MonoBehaviour
             displayText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
-        myAudio.Stop();
+
         ShowOptions();
     }
 
@@ -174,6 +185,9 @@ public class DialogueManager : MonoBehaviour
     private void NextSentence(int curResponseTracker)
     {
         displayText.text = npc.GetSentence(curResponseTracker);
+        myAudio.clip = npc.GetAudio(curResponseTracker);
+        myAudio.Play();
+
         optionsPanel.SetActive(false);
     }
 

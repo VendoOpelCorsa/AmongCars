@@ -20,6 +20,10 @@ public class NPC : ScriptableObject
     [TextArea(3, 15)]
     public string[] playerResponses;
 
+    public AudioClip[] voices1;
+
+    public AudioClip[] voices2;
+
     private int round = 1;
 
     public string[] GetSentences()
@@ -30,6 +34,16 @@ public class NPC : ScriptableObject
     public string GetSentence(int index)
     {
         return GetSentences()[index];
+    }
+
+    public AudioClip[] GetAudios()
+    {
+        return round == 1 ? voices1 : voices2;
+    }
+
+    public AudioClip GetAudio(int index)
+    {
+        return GetAudios()[index];
     }
 
     public string[] GetOptions()
