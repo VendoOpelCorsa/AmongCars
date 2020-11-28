@@ -84,6 +84,14 @@
                     "expectedControlType": "Integer",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Acusar",
+                    "type": "Button",
+                    "id": "76fbfff3-1ed8-47db-b3f2-8f3db5101aa5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -414,6 +422,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Option4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bafb492f-17c3-4e34-a447-1e79ce676113",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Acusar",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

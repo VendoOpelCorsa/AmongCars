@@ -29,6 +29,8 @@ public class Acusar : MonoBehaviour
 
     public GameObject player;
 
+    private bool pulsado;
+
     private int arma;
     private int asesino;
 
@@ -60,13 +62,31 @@ public class Acusar : MonoBehaviour
         asesino = 0;
     }
 
-    void OnTriggerEnter(){
-        panelAcusar.SetActive(true);
-        //MostrarAsesino();
+    void OnTriggerEnter(Collider other){
+        if(other.CompareTag("Player")){
+            panelAcusar.SetActive(true);
+        }
     }
 
-    void OnTriggerStay(){
-        if (controls.Player.Option1.ReadValue<float>() == 1){
+    void OnTriggerStay(Collider other){
+
+        if(other.CompareTag("Player")){
+            StartCoroutine(CambioBotones());
+        }
+
+    }
+
+    void OnTriggerExit(Collider other){
+        if(other.CompareTag("Player")){
+            textoSigueIntentandolo.SetActive(false);
+            textoGanado.SetActive(false);
+            panelAcusar.SetActive(false);
+        }
+    }
+
+    IEnumerator CambioBotones(){
+        if (!pulsado && controls.Player.Option1.ReadValue<float>() == 1){
+            pulsado = true;
             if(asesino<0) {
                 asesino = 4;
                 textAsesino.text = names[asesino];
@@ -74,50 +94,57 @@ public class Acusar : MonoBehaviour
             else {
                 textAsesino.text = names[asesino--];
             }
+            yield return new WaitForSeconds(0.1f);
+            pulsado = false;
         }
-        if (controls.Player.Option2.ReadValue<float>() == 1){
+        if (!pulsado && controls.Player.Option2.ReadValue<float>() == 1){
+            pulsado = true;
             if(asesino>4) {
                 asesino = 0;
                 textAsesino.text = names[asesino];
             }else{
                 textAsesino.text = names[asesino++];
             }
+            yield return new WaitForSeconds(0.1f);
+            pulsado = false;
         }
-        if (controls.Player.Option3.ReadValue<float>() == 1){
+        if (!pulsado && controls.Player.Option3.ReadValue<float>() == 1){
+            pulsado = true;
             if(arma<0){
                 arma = 3;
-                textArma.text = names[arma];
+                textArma.text = weapons[arma];
             } else {
-                textArma.text = names[arma--];
+                textArma.text = weapons[arma--];
             }
+            yield return new WaitForSeconds(0.1f);
+            pulsado = false;
             
         }
-        if (controls.Player.Option4.ReadValue<float>() == 1){
+        if (!pulsado && controls.Player.Option4.ReadValue<float>() == 1){
+            pulsado = true;
             if(arma>3) {
                 arma = 0;
-                textArma.text = names[arma];
+                textArma.text = weapons[arma];
             } else {
-                textArma.text = names[arma++];
+                textArma.text = weapons[arma++];
             }
+            yield return new WaitForSeconds(0.1f);
+            pulsado = false;
         }
-
-
-        // if(textAsesino.text != names[4] || textArma.text != weapons[1]){
-        //     player.SendMessage("quitarCordura");
-        //     textoSigueIntentandolo.SetActive(true);
-        //     panelAcusar.SetActive(false);
-        // }
-        // if(textAsesino.text == names[4] && textArma.text == weapons[1]){
-        //     print("correcto!");
-        //     panelAcusar.SetActive(false);
-        //     textoGanado.SetActive(true);
-        // }
-
-    }
-
-    void OnTriggerExit(){
-        textoSigueIntentandolo.SetActive(false);
-        textoGanado.SetActive(false);
-        panelAcusar.SetActive(false);
+        if(!pulsado && controls.Player.Acusar.ReadValue<float>() == 1){
+            pulsado = true;
+            if(textAsesino.text != names[4] || textArma.text != weapons[1]){
+                player.SendMessage("quitarCordura");
+                textoSigueIntentandolo.SetActive(true);
+                panelAcusar.SetActive(false);
+            }
+            if(textAsesino.text == names[4] && textArma.text == weapons[1]){
+                print("correcto!");
+                panelAcusar.SetActive(false);
+                textoGanado.SetActive(true);
+            }
+            yield return new WaitForSeconds(0.1f);
+            pulsado = false;
+        }
     }
 }
