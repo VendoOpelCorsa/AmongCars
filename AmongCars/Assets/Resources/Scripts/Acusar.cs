@@ -53,7 +53,7 @@ public class Acusar : MonoBehaviour
 
     void OnTriggerEnter(){
         panelAcusar.SetActive(true);
-        MostrarAsesino();
+        //MostrarAsesino();
     }
 
     void OnTriggerStay(){
