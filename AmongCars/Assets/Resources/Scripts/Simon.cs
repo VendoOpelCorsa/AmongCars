@@ -50,7 +50,6 @@ public class Simon : MonoBehaviour
 
 	public void ResetUser () {
 		userSequence.Clear();
-		StartCoroutine(AddToUserSequence());
 	}
 
 	IEnumerator AnimateButtonSequence ()
@@ -69,6 +68,7 @@ public class Simon : MonoBehaviour
 		}
 		print("Simon acaba");
 		animatingSequence = false;
+		StartCoroutine(AddToUserSequence());
 	}
 
 	public void AddToSimonSequence ()
@@ -81,6 +81,7 @@ public class Simon : MonoBehaviour
 
 	IEnumerator GameLoop ()
 	{
+		print("GAME LOOP");
 		do
 		{
 			if (EqualSequenceLength ())
@@ -89,17 +90,19 @@ public class Simon : MonoBehaviour
 				{
 					print ("Has ganado!");
 
+					ResetUser ();
+
 					AddToSimonSequence ();
 
 					yield return new WaitForSeconds (1.5f);
 
 					StartCoroutine (AnimateButtonSequence ());
-
-					ResetUser ();
 				}
 				else
 				{
 					print ("Has perdido :(");
+
+					StopAllCoroutines();
 
 					ResetSimon ();
 					ResetUser ();
@@ -109,6 +112,8 @@ public class Simon : MonoBehaviour
 			else if (userSequence.Count > simonSequence.Count)
 			{
 				yield return new WaitForSeconds (1.5f);
+
+				StopAllCoroutines();
 
 				ResetSimon ();
 				ResetUser ();
@@ -169,17 +174,13 @@ public class Simon : MonoBehaviour
         }
     }
 
-	// void Update()
-	// {
-	// 	 if (!animatingSequence){
-	// 		 AddToUserSequence();
-	// 	 }
-		
+	// void Update(){
+	// 	AddToUserSequence();
 	// }
 
 	IEnumerator AddToUserSequence(){
-		print("Entra en user sequence");
 		if(!animatingSequence){
+			print("Entra en user sequence");
 			if (controls.Player.Option1.ReadValue<float>() == 1)
 			{
 				userSequence.Add(0);
