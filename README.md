@@ -6,6 +6,8 @@
 
 ### ✨ A unique VR experience made by students with no budget ✨ 
 
+To meet our characters, go take a look with some augmented reality <a href="https://github.com/VendoOpelCorsa/PersonajesRA">here</a> 💖
+
 ## 🎥 Demos
 
 Take a quick peek at our youtube channel! Here you will find the first story board and demos. 
