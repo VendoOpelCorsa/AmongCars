@@ -75,9 +75,14 @@ public class DialogueManager : MonoBehaviour
         voices.Clear();
 
         foreach (string sentence in npc.GetSentences())
+
             sentences.Enqueue(sentence);
         foreach (AudioClip voice in npc.GetAudios())
             voices.Enqueue(voice);
+
+        foreach (AudioClip voz in npc.voces){
+            audios.Enqueue(voz);
+        }
 
         DisplayNextSentence();
     }
@@ -152,6 +157,7 @@ public class DialogueManager : MonoBehaviour
             npc.ChangeRound();
             chatting = false;
             StopAllCoroutines();
+            myAudio.Stop();
         }
     }
 

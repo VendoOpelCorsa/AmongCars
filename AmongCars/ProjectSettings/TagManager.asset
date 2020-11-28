@@ -8,6 +8,33 @@ TagManager:
   - displayText
   - dialoguePanel
   - objetos
+  - Risa
+  - Oficina3
+  - Arranca
+  - CierraDucha
+  - Vestuario2
+  - Oficina2
+  - Cafeteria
+  - Vestuario1
+  - Oficina4
+  - pi
+  - SalidaOficina4
+  - Oficina1
+  - Motor
+  - Goteo
+  - Reloj2
+  - CerrarDucha
+  - Reloj4
+  - Reloj1
+  - Reloj5
+  - Reloj3
+  - Ducha
+  - Paso
+  - SonidoTP
+  - CancionLaberinto
+  - ColliderLaberinto
+  - SonidoAmbiente
+  - Transicion
   layers:
   - Default
   - TransparentFX

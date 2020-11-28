@@ -46,6 +46,11 @@ public class NPC : ScriptableObject
         return GetAudios()[index];
     }
 
+    public AudioClip GetAudio(int index) 
+    {
+        return voces[index];
+    }
+
     public string[] GetOptions()
     {
         return playerResponses.Skip((round - 1) * 3).Take(3).ToArray();
