@@ -23,3 +23,8 @@ MonoBehaviour:
   - "A\xF1il, \xBFqu\xE9 tal est\xE1s? "
   - "Rosa est\xE1 muy afectada "
   - 'No puedo creer lo de Verde '
+  voces:
+  - {fileID: 8300000, guid: c17260197692f4c4b9e585f335d213cc, type: 3}
+  - {fileID: 8300000, guid: c2749c50dbb963d4dbd3f3b2f354800c, type: 3}
+  - {fileID: 8300000, guid: 6e94692a005e0084c8ece070ea7b0320, type: 3}
+  - {fileID: 8300000, guid: b76543e279341ec47b1866c61400fbbc, type: 3}

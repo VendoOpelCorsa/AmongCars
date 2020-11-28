@@ -25,3 +25,7 @@ MonoBehaviour:
   - "\xBFA ti no te ca\xEDa muy bien verdad?"
   - "Se comenta que sal\xEDa con Rosita\u2026"
   - "\xBFC\xF3mo vas con los amortiguadores?"
+  voces:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

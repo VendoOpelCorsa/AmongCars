@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
 
     Queue<string> sentences;
 
+    Queue<AudioClip> audios;
+
     //public GameObject dialoguePanel;
     public TMP_Text displayText;
 
@@ -38,11 +40,12 @@ public class DialogueManager : MonoBehaviour
     public float typingSpeed;
 
     AudioSource myAudio;
-    public AudioClip speakSound;
+    public AudioClip speakSound; //Crear de la misma manera que las frases, una cola de audios
 
     void Start()
     {
         sentences = new Queue<string>();
+        audios = new Queue<AudioClip>();
         myAudio = GetComponent<AudioSource>();
     }
 
@@ -69,9 +72,14 @@ public class DialogueManager : MonoBehaviour
     void StartDialogue()
     {
         sentences.Clear();
+        audios.Clear();
         foreach (string sentence in npc.sentences)
         {
             sentences.Enqueue(sentence);
+        }
+
+        foreach (AudioClip voz in npc.voces){
+            audios.Enqueue(voz);
         }
 
         DisplayNextSentence();
@@ -82,11 +90,14 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count <= 0)
         {
             displayText.text = activeSentence;
+            myAudio.clip = speakSound;
             return;
         }
 
         activeSentence = sentences.Dequeue();
         displayText.text = activeSentence;
+        speakSound = audios.Dequeue();
+        myAudio.clip = speakSound;
 
         StopAllCoroutines();
         StartCoroutine(TypeTheSentence(activeSentence));
@@ -95,7 +106,8 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeTheSentence(string sentence)
     {
         displayText.text = "";
-
+        
+        myAudio.Play();
         foreach (char letter in sentence.ToCharArray())
         {
             ObjectInteraction.ShowDialog(true);
@@ -149,6 +161,7 @@ public class DialogueManager : MonoBehaviour
         {
             ClosePanel();
             StopAllCoroutines();
+            myAudio.Stop();
         }
     }
 
@@ -181,6 +194,9 @@ public class DialogueManager : MonoBehaviour
     {
 
         displayText.text = npc.GetSentence(curResponseTracker);
+        myAudio.clip = npc.GetAudio(curResponseTracker);
+        myAudio.Play();
+
         optionsPanel.SetActive(false);
     }
 

@@ -19,3 +19,5 @@ MonoBehaviour:
     semana que llevaba, que Naranja no lo dejaba en paz, todo el d\xEDa grit\xE1ndole,
     pobrecillo. "
   playerResponses: []
+  voces:
+  - {fileID: 8300000, guid: 7539f4a63b56af54c9beacfc63adc8fb, type: 3}
