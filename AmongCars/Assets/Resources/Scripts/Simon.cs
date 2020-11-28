@@ -8,6 +8,8 @@ public class Simon : MonoBehaviour
 	public AmongCars controls;
 
     public GameObject panel;
+	public GameObject texto;
+	public GameObject textoGanar;
 
 	public int startingSequenceCount = 5;
 	public List<int> simonSequence;
@@ -80,7 +82,9 @@ public class Simon : MonoBehaviour
 	}
 
 	IEnumerator GameLoop ()
-	{
+	{	
+		bool lost = false;
+		int level = 0;
 		print("GAME LOOP");
 		do
 		{
@@ -89,7 +93,12 @@ public class Simon : MonoBehaviour
 				if (CompareSequences ())
 				{
 					print ("Has ganado!");
-
+					level ++;
+					if(level == 4){
+						textoGanar.SetActive(true);
+						StopAllCoroutines();
+						panel.SetActive(false);
+					}
 					ResetUser ();
 
 					AddToSimonSequence ();
@@ -101,12 +110,13 @@ public class Simon : MonoBehaviour
 				else
 				{
 					print ("Has perdido :(");
-
+					lost = true;
 					StopAllCoroutines();
 
-					ResetSimon ();
-					ResetUser ();
-					yield return new WaitForSeconds (1.5f);
+					texto.SetActive(true);
+					panel.SetActive(false);
+
+					//yield return new WaitForSeconds (1.5f);
 				}
 			}
 			else if (userSequence.Count > simonSequence.Count)
@@ -118,10 +128,10 @@ public class Simon : MonoBehaviour
 				ResetSimon ();
 				ResetUser ();
 			}
-
+			//print("Continuo esperando a que el user introduzca");
 			yield return new WaitForSeconds (1.0f);
 
-		} while (true);
+		} while (!lost && level < 4);
 	}
 
 	public bool CompareSequences ()
@@ -170,41 +180,55 @@ public class Simon : MonoBehaviour
     void OnTriggerExit(Collider other){
         if (other.CompareTag("Player")){
             panel.SetActive(false);
+			texto.SetActive(false);
+			textoGanar.SetActive(false);
 			StopAllCoroutines();
         }
     }
 
-	// void Update(){
-	// 	AddToUserSequence();
-	// }
-
 	IEnumerator AddToUserSequence(){
 		if(!animatingSequence){
 			print("Entra en user sequence");
-			if (controls.Player.Option1.ReadValue<float>() == 1)
-			{
-				userSequence.Add(0);
-				print("HAS PULSADO ROJO");
-				botonRojo.GetComponent<Image>().color = botonRojo.GetComponent<Button>().colors.pressedColor;
-				yield return new WaitForSeconds (0.5f);
-				botonRojo.GetComponent<Image>().color = botonRojo.GetComponent<Button>().colors.normalColor;
-			}
-			if (controls.Player.Option2.ReadValue<float>() == 1)
-			{
-				userSequence.Add(1);
-				print("HAS PULSADO AMARILLO");
-				botonAmarillo.GetComponent<Image>().color = botonAmarillo.GetComponent<Button>().colors.pressedColor;
-				yield return new WaitForSeconds (0.5f);
-				botonAmarillo.GetComponent<Image>().color = botonAmarillo.GetComponent<Button>().colors.normalColor;
-			}
-			if (controls.Player.Option3.ReadValue<float>() == 1)
-			{
-				userSequence.Add(2);
-				print("HAS PULSADO Verde");
-				botonVerde.GetComponent<Image>().color = botonVerde.GetComponent<Button>().colors.pressedColor;
-				yield return new WaitForSeconds (0.5f);
-				botonVerde.GetComponent<Image>().color = botonVerde.GetComponent<Button>().colors.normalColor;
-			}
+			yield return new WaitForSeconds (1.0f);
+			userSequence.Add(0);
+			botonRojo.GetComponent<Image>().color = botonRojo.GetComponent<Button>().colors.pressedColor;
+			yield return new WaitForSeconds (1.0f);
+			botonRojo.GetComponent<Image>().color = botonRojo.GetComponent<Button>().colors.normalColor;
+			yield return new WaitForSeconds (0.5f);
+			userSequence.Add(1);
+			botonAmarillo.GetComponent<Image>().color = botonAmarillo.GetComponent<Button>().colors.pressedColor;
+			yield return new WaitForSeconds (1.0f);
+			botonAmarillo.GetComponent<Image>().color = botonAmarillo.GetComponent<Button>().colors.normalColor;
+			yield return new WaitForSeconds (0.5f);
+			userSequence.Add(1);
+			botonAmarillo.GetComponent<Image>().color = botonAmarillo.GetComponent<Button>().colors.pressedColor;
+			yield return new WaitForSeconds (1.0f);
+			botonAmarillo.GetComponent<Image>().color = botonAmarillo.GetComponent<Button>().colors.normalColor;
+			
+			// if (controls.Player.Option1.ReadValue<float>() == 1)
+			// {
+			// 	userSequence.Add(0);
+			// 	print("HAS PULSADO ROJO");
+			// 	botonRojo.GetComponent<Image>().color = botonRojo.GetComponent<Button>().colors.pressedColor;
+			// 	yield return new WaitForSeconds (0.5f);
+			// 	botonRojo.GetComponent<Image>().color = botonRojo.GetComponent<Button>().colors.normalColor;
+			// }
+			// if (controls.Player.Option2.ReadValue<float>() == 1)
+			// {
+			// 	userSequence.Add(1);
+			// 	print("HAS PULSADO AMARILLO");
+			// 	botonAmarillo.GetComponent<Image>().color = botonAmarillo.GetComponent<Button>().colors.pressedColor;
+			// 	yield return new WaitForSeconds (0.5f);
+			// 	botonAmarillo.GetComponent<Image>().color = botonAmarillo.GetComponent<Button>().colors.normalColor;
+			// }
+			// if (controls.Player.Option3.ReadValue<float>() == 1)
+			// {
+			// 	userSequence.Add(2);
+			// 	print("HAS PULSADO Verde");
+			// 	botonVerde.GetComponent<Image>().color = botonVerde.GetComponent<Button>().colors.pressedColor;
+			// 	yield return new WaitForSeconds (0.5f);
+			// 	botonVerde.GetComponent<Image>().color = botonVerde.GetComponent<Button>().colors.normalColor;
+			// }
 		}
 	}
 }
