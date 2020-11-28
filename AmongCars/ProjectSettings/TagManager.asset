@@ -35,6 +35,7 @@ TagManager:
   - ColliderLaberinto
   - SonidoAmbiente
   - Transicion
+  - puertajefe
   layers:
   - Default
   - TransparentFX
