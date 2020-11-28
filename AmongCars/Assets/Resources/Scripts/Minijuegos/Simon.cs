@@ -11,6 +11,8 @@ public class Simon : MonoBehaviour
 	public GameObject texto;
 	public GameObject textoGanar;
 
+	public GameObject player;
+
 	public int startingSequenceCount = 5;
 	public List<int> simonSequence;
 	public List<int> userSequence;
@@ -111,6 +113,7 @@ public class Simon : MonoBehaviour
 				{
 					print ("Has perdido :(");
 					lost = true;
+					player.SendMessage("quitarCordura");
 					StopAllCoroutines();
 
 					texto.SetActive(true);
