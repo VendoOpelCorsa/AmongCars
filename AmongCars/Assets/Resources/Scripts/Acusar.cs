@@ -29,6 +29,9 @@ public class Acusar : MonoBehaviour
 
     public GameObject player;
 
+    private int arma;
+    private int asesino;
+
     protected void Awake() => controls = new AmongCars();
     protected void OnEnable() => controls?.Enable();
     protected void OnDisable() => controls?.Disable();
@@ -49,6 +52,12 @@ public class Acusar : MonoBehaviour
         weapons.Add("LLAVE INGLESA");
         weapons.Add("CUCHILLO");
         weapons.Add("TORNILLOS");
+
+        textAsesino.text = names[0];
+        textArma.text = weapons[0];
+
+        arma = 0;
+        asesino = 0;
     }
 
     void OnTriggerEnter(){
@@ -57,17 +66,52 @@ public class Acusar : MonoBehaviour
     }
 
     void OnTriggerStay(){
+        if (controls.Player.Option1.ReadValue<float>() == 1){
+            if(asesino<0) {
+                asesino = 4;
+                textAsesino.text = names[asesino];
+            }
+            else {
+                textAsesino.text = names[asesino--];
+            }
+        }
+        if (controls.Player.Option2.ReadValue<float>() == 1){
+            if(asesino>4) {
+                asesino = 0;
+                textAsesino.text = names[asesino];
+            }else{
+                textAsesino.text = names[asesino++];
+            }
+        }
+        if (controls.Player.Option3.ReadValue<float>() == 1){
+            if(arma<0){
+                arma = 3;
+                textArma.text = names[arma];
+            } else {
+                textArma.text = names[arma--];
+            }
+            
+        }
+        if (controls.Player.Option4.ReadValue<float>() == 1){
+            if(arma>3) {
+                arma = 0;
+                textArma.text = names[arma];
+            } else {
+                textArma.text = names[arma++];
+            }
+        }
 
-        if(textAsesino.text != names[4] || textArma.text != weapons[1]){
-            player.SendMessage("quitarCordura");
-            textoSigueIntentandolo.SetActive(true);
-            panelAcusar.SetActive(false);
-        }
-        if(textAsesino.text == names[4] && textArma.text == weapons[1]){
-            print("correcto!");
-            panelAcusar.SetActive(false);
-            textoGanado.SetActive(true);
-        }
+
+        // if(textAsesino.text != names[4] || textArma.text != weapons[1]){
+        //     player.SendMessage("quitarCordura");
+        //     textoSigueIntentandolo.SetActive(true);
+        //     panelAcusar.SetActive(false);
+        // }
+        // if(textAsesino.text == names[4] && textArma.text == weapons[1]){
+        //     print("correcto!");
+        //     panelAcusar.SetActive(false);
+        //     textoGanado.SetActive(true);
+        // }
 
     }
 
