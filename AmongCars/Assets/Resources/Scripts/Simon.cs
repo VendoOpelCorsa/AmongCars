@@ -39,7 +39,6 @@ public class Simon : MonoBehaviour
 	public void ResetSimon ()
 	{
 		simonSequence.Clear ();
-		//userSequence.Clear ();
 
 		for (int i = 0; i < startingSequenceCount; i++)
 		{
@@ -166,6 +165,7 @@ public class Simon : MonoBehaviour
     void OnTriggerExit(Collider other){
         if (other.CompareTag("Player")){
             panel.SetActive(false);
+			StopAllCoroutines();
         }
     }
 
