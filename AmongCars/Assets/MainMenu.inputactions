@@ -1,0 +1,44 @@
+{
+    "name": "MainMenu",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "567c95ae-2f24-4fe1-8be4-e85ec7ae6af7",
+            "actions": [
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "f0e096ca-92ec-4277-bbe7-146d61b29778",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f6252679-60e1-4171-b5b1-958cab95f171",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d6fe903-e92e-487b-86bb-a38287321247",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
