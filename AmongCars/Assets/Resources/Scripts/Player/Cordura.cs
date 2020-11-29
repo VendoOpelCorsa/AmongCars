@@ -22,6 +22,7 @@ public class Cordura : MonoBehaviour
 
     void recuperarCordura(){
         cordura = corduraTotal;
+        print(cordura);
         textoCordura.transform.localScale = new Vector2( cordura/corduraTotal, 1);
     }
 

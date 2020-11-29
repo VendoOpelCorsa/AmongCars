@@ -13,6 +13,7 @@
             GameObject.FindWithTag("SonidoAmbiente").GetComponent<AudioSource>().Play();
         }
         GameObject.FindWithTag("Transicion").GetComponent<AudioSource>().Play();
+        player.SendMessage("recuperarCordura");
      }
 
  
