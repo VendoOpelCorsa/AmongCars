@@ -8,7 +8,9 @@
 
 ### ✨ A unique VR experience made by students with no budget ✨ 
 
-To meet our characters, go take a look with some augmented reality <a href="https://github.com/VendoOpelCorsa/PersonajesRA">here</a> 💖
+To meet our characters, go take a look with some augmented reality <a href="https://github.com/VendoOpelCorsa/PersonajesRA">here</a> 💖.
+
+You can also just <a href="https://github.com/VendoOpelCorsa/AmongCarsCharacters/releases/tag/2">download</a> the .APK and try it on your phone! 
 
 ## 🎥 Demos
 
