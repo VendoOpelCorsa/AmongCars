@@ -7,7 +7,7 @@
      public GameObject player;
 
      void OnTriggerEnter(Collider other){
-         player.transform.position = teleportTarget.transform.position;
+        player.transform.position = teleportTarget.transform.position;
         if (!GameObject.FindWithTag("SonidoAmbiente").GetComponent<AudioSource>().isPlaying){
             GameObject.FindWithTag("CancionLaberinto").GetComponent<AudioSource>().Stop();
             GameObject.FindWithTag("SonidoAmbiente").GetComponent<AudioSource>().Play();

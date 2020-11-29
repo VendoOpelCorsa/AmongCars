@@ -90,7 +90,7 @@ public class Acusar : MonoBehaviour
             textAsesino.text = names[asesino];
             asesino --;
             if(asesino == -1){
-                 asesino = 4;
+                asesino = 4;
             }
             yield return new WaitForSeconds(0.1f);
             pulsado = false;
@@ -100,7 +100,7 @@ public class Acusar : MonoBehaviour
             textAsesino.text = names[asesino];
             asesino ++;
             if(asesino > 4){
-                 asesino = 0;
+                asesino = 0;
             }
             yield return new WaitForSeconds(0.1f);
             pulsado = false;
@@ -110,7 +110,7 @@ public class Acusar : MonoBehaviour
             textArma.text = weapons[arma];
             arma --;
             if(arma == -1){
-                 arma = 3;
+                arma = 3;
             }
             yield return new WaitForSeconds(0.1f);
             pulsado = false;
