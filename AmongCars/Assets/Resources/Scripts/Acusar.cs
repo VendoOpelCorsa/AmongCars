@@ -87,34 +87,30 @@ public class Acusar : MonoBehaviour
     IEnumerator CambioBotones(){
         if (!pulsado && controls.Player.Option1.ReadValue<float>() == 1){
             pulsado = true;
-            if(asesino<0) {
+            textAsesino.text = names[asesino];
+            asesino --;
+            if(asesino == -1){
                 asesino = 4;
-                textAsesino.text = names[asesino];
-            }
-            else {
-                textAsesino.text = names[asesino--];
             }
             yield return new WaitForSeconds(0.1f);
             pulsado = false;
         }
         if (!pulsado && controls.Player.Option2.ReadValue<float>() == 1){
             pulsado = true;
-            if(asesino>4) {
+            textAsesino.text = names[asesino];
+            asesino ++;
+            if(asesino > 4){
                 asesino = 0;
-                textAsesino.text = names[asesino];
-            }else{
-                textAsesino.text = names[asesino++];
             }
             yield return new WaitForSeconds(0.1f);
             pulsado = false;
         }
         if (!pulsado && controls.Player.Option3.ReadValue<float>() == 1){
             pulsado = true;
-            if(arma<0){
+            textArma.text = weapons[arma];
+            arma --;
+            if(arma == -1){
                 arma = 3;
-                textArma.text = weapons[arma];
-            } else {
-                textArma.text = weapons[arma--];
             }
             yield return new WaitForSeconds(0.1f);
             pulsado = false;
@@ -122,11 +118,10 @@ public class Acusar : MonoBehaviour
         }
         if (!pulsado && controls.Player.Option4.ReadValue<float>() == 1){
             pulsado = true;
-            if(arma>3) {
+            textArma.text = weapons[arma];
+            arma ++;
+            if(arma > 3){
                 arma = 0;
-                textArma.text = weapons[arma];
-            } else {
-                textArma.text = weapons[arma++];
             }
             yield return new WaitForSeconds(0.1f);
             pulsado = false;
