@@ -105,6 +105,14 @@ public class @AmongCars : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""e2d6ebb7-7ea6-4d4a-ad97-2cf05f2fb3b0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -457,6 +465,28 @@ public class @AmongCars : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Acusar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""065fbb4d-2684-4250-af5a-2bd35d1f5c1b"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9d2bb47-5837-4209-8fb8-a86f9d09c6a2"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1067,6 +1097,7 @@ public class @AmongCars : IInputActionCollection, IDisposable
         m_Player_Salir = m_Player.FindAction("Salir", throwIfNotFound: true);
         m_Player_ToggleFlashLight = m_Player.FindAction("Toggle FlashLight", throwIfNotFound: true);
         m_Player_Acusar = m_Player.FindAction("Acusar", throwIfNotFound: true);
+        m_Player_Start = m_Player.FindAction("Start", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
@@ -1139,6 +1170,7 @@ public class @AmongCars : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Salir;
     private readonly InputAction m_Player_ToggleFlashLight;
     private readonly InputAction m_Player_Acusar;
+    private readonly InputAction m_Player_Start;
     public struct PlayerActions
     {
         private @AmongCars m_Wrapper;
@@ -1154,6 +1186,7 @@ public class @AmongCars : IInputActionCollection, IDisposable
         public InputAction @Salir => m_Wrapper.m_Player_Salir;
         public InputAction @ToggleFlashLight => m_Wrapper.m_Player_ToggleFlashLight;
         public InputAction @Acusar => m_Wrapper.m_Player_Acusar;
+        public InputAction @Start => m_Wrapper.m_Player_Start;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1196,6 +1229,9 @@ public class @AmongCars : IInputActionCollection, IDisposable
                 @Acusar.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcusar;
                 @Acusar.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcusar;
                 @Acusar.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcusar;
+                @Start.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
+                @Start.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
+                @Start.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1233,6 +1269,9 @@ public class @AmongCars : IInputActionCollection, IDisposable
                 @Acusar.started += instance.OnAcusar;
                 @Acusar.performed += instance.OnAcusar;
                 @Acusar.canceled += instance.OnAcusar;
+                @Start.started += instance.OnStart;
+                @Start.performed += instance.OnStart;
+                @Start.canceled += instance.OnStart;
             }
         }
     }
@@ -1400,6 +1439,7 @@ public class @AmongCars : IInputActionCollection, IDisposable
         void OnSalir(InputAction.CallbackContext context);
         void OnToggleFlashLight(InputAction.CallbackContext context);
         void OnAcusar(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
