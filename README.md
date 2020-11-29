@@ -1,5 +1,7 @@
 # Among Cars
 
+See last Sprint info & documentation <a href="https://github.com/VendoOpelCorsa/AmongCars/wiki/Sprint-3---Game-Prototype">here</a>.
+
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) 
 [![forthebadge](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
