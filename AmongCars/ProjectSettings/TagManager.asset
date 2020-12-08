@@ -38,6 +38,11 @@ TagManager:
   - puertajefe
   - textArma
   - textAsesino
+  - projectile
+  - FxTemporaire
+  - cableRojo
+  - cableVerde
+  - cableAzul
   layers:
   - Default
   - TransparentFX

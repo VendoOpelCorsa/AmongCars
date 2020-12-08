@@ -30,14 +30,14 @@ MonoBehaviour:
   - Disimula muy bien, pero antes creo que la vi llorando
   - "\xBFConseguiste hablar con \xE9l? No habla con nadie, s\xF3lo con Morado. Est\xE1
     hecho polvo, Rosa no tiene coraz\xF3n.  "
-  - 'Hombre, si me acercas una fregona...  '
+  - "Nada, me cort\xE9 con la rebarbadora."
   playerResponses:
   - Nadie se esperaba esto
   - Mejor te dejo tranquilo
   - "Oye, \xBFHas visto a A\xF1il?"
   - "Tampoco la veo tan mal\u2026 "
   - "En cuanto a A\xF1il\u2026 "
-  - "\xBFNecesitas algo? "
+  - "\xBFY esa mancha?"
   voices1:
   - {fileID: 8300000, guid: 62f2703b4f786ab438abddcf535eccf3, type: 3}
   - {fileID: 8300000, guid: ac0e4f79194a8214f98b47d9410c492e, type: 3}
