@@ -1,5 +1,9 @@
 # Among Cars
 
+First of all, take a look at the <a href="https://github.com/VendoOpelCorsa/AmongCars/wiki/Game-Controls">game controls</a> . 
+
+❗❗❗ FIRST DEMO APK HERE -------> <a href="https://github.com/VendoOpelCorsa/AmongCars/releases/tag/v.0.1">LINK</a> ❗❗❗
+
 ⚠️ See last Sprint info & documentation <a href="https://github.com/VendoOpelCorsa/AmongCars/wiki/Sprint-3---Game-Prototype">here</a>. ⚠️
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) 
@@ -9,7 +13,6 @@
 ### ✨ A unique VR experience made by students with no budget ✨ 
 
 To meet our characters, go take a look with some augmented reality <a href="https://github.com/VendoOpelCorsa/PersonajesRA">here</a> 💖.
-
 You can also just <a href="https://github.com/VendoOpelCorsa/AmongCarsCharacters/releases/tag/2">download</a> the .APK and try it on your phone! 
 
 ## 🎥 Demos
