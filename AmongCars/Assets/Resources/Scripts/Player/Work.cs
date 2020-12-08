@@ -26,6 +26,8 @@ public class Work : MonoBehaviour
         tasks.Add("El ordenador del jefe no funciona, ¡¡ARRÉGLALO!!");
         tasks.Add("Vaya... tienes suerte. No hay nada que hacer... de momento");
         tasks.Add("Acuérdate... Siempre puedes llamar a la policía para resolver el caso");
+        tasks.Add("El ordenador del jefe no funciona... ARRÉGLALO!!!");
+        tasks.Add("Precinta las cajas del almacén, vago!");
         tasks.Add("Es bromi");
         panel.SetActive(false);
         StartCoroutine(TimeToWork());

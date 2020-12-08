@@ -10,7 +10,6 @@ public class DoorInteraction : MonoBehaviour
     void OnTriggerEnter(){
         
         if(key.Found){
-            print("ta bien");
             puerta.SetActive(false);
         }
     }
