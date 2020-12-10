@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Light flashlight;
     private Light fComponent;
 
+    public GameObject pauseMenu;
     private CharacterController cntrl;
 
     private float directionY;
@@ -29,8 +30,9 @@ public class PlayerMovement : MonoBehaviour
     protected void Awake() => controls = new AmongCars();
     protected void OnEnable() => controls.Enable();
     protected void OnDisable() => controls.Disable();
-
+    int timesPressed = 0;
     public bool on = false;
+    bool isPaused = false;
 
     void Update()
     {
@@ -48,7 +50,8 @@ public class PlayerMovement : MonoBehaviour
         bool jump = controls.Player.Jump.ReadValue<float>() == 1;
 
         bool flashLight = controls.Player.ToggleFlashLight.ReadValue<float>() == 1;
-
+        bool pause =  controls.Player.Pause.ReadValue<float>() == 1;
+ 
         var c = VREmulator.GetRotation();
         Vector3 dir = c * Vector3.right * x + c * Vector3.forward * z;
 
@@ -75,6 +78,22 @@ public class PlayerMovement : MonoBehaviour
                 fComponent.enabled = false;
                 on = !on;
             }
+        }
+
+        if(pause){
+            timesPressed++;
+            if(timesPressed>50){
+                if(isPaused){
+                    DisablePause();
+                    timesPressed=0;
+                } else{
+                    EnablePause();
+                    timesPressed=0;
+                }
+            }
+            
+        } else{
+            timesPressed=0;
         }
 
         if (!grounded)
@@ -104,4 +123,17 @@ public class PlayerMovement : MonoBehaviour
             audio.Play();
         }
     }
+
+    private void EnablePause(){
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true); 
+        isPaused = !isPaused; 
+    }
+
+    private void DisablePause(){
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        isPaused = !isPaused; 
+    }
+
 }

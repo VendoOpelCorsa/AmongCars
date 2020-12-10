@@ -113,6 +113,14 @@ public class @AmongCars : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""1acb17b6-e922-43a5-827d-1923df79dea2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -487,6 +495,28 @@ public class @AmongCars : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf048dc6-7900-4769-814b-551f2ecf2280"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d0deb76-275d-427e-9592-f52d784ea232"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1098,6 +1128,7 @@ public class @AmongCars : IInputActionCollection, IDisposable
         m_Player_ToggleFlashLight = m_Player.FindAction("Toggle FlashLight", throwIfNotFound: true);
         m_Player_Acusar = m_Player.FindAction("Acusar", throwIfNotFound: true);
         m_Player_Start = m_Player.FindAction("Start", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
@@ -1171,6 +1202,7 @@ public class @AmongCars : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_ToggleFlashLight;
     private readonly InputAction m_Player_Acusar;
     private readonly InputAction m_Player_Start;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @AmongCars m_Wrapper;
@@ -1187,6 +1219,7 @@ public class @AmongCars : IInputActionCollection, IDisposable
         public InputAction @ToggleFlashLight => m_Wrapper.m_Player_ToggleFlashLight;
         public InputAction @Acusar => m_Wrapper.m_Player_Acusar;
         public InputAction @Start => m_Wrapper.m_Player_Start;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1232,6 +1265,9 @@ public class @AmongCars : IInputActionCollection, IDisposable
                 @Start.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
                 @Start.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
                 @Start.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStart;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1272,6 +1308,9 @@ public class @AmongCars : IInputActionCollection, IDisposable
                 @Start.started += instance.OnStart;
                 @Start.performed += instance.OnStart;
                 @Start.canceled += instance.OnStart;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -1440,6 +1479,7 @@ public class @AmongCars : IInputActionCollection, IDisposable
         void OnToggleFlashLight(InputAction.CallbackContext context);
         void OnAcusar(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
