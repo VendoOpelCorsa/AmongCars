@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Acusar : MonoBehaviour
@@ -28,6 +29,8 @@ public class Acusar : MonoBehaviour
     public Button botonAcusar;
 
     public GameObject player;
+
+    public GameObject panelGanar;
 
     private bool pulsado;
 
@@ -136,7 +139,11 @@ public class Acusar : MonoBehaviour
             if(textAsesino.text == names[4] && textArma.text == weapons[1]){
                 print("correcto!");
                 panelAcusar.SetActive(false);
-                textoGanado.SetActive(true);
+                panelGanar.SetActive(true);
+                yield return new WaitForSeconds(5);
+                SceneManager.LoadScene("MainMenu"); 
+
+
             }
             yield return new WaitForSeconds(0.1f);
             pulsado = false;
